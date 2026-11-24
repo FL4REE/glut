@@ -72,7 +72,7 @@
   </tr>
   <tr>
     <td><b>Control center.</b> Brightness, volume, network, Bluetooth, audio devices, night mode, power profile, disk usage.</td>
-    <td><b>Every keybind, searchable.</b> <code>SUPER + SHIFT + /</code> lists all binds by category. Click one to run it.</td>
+    <td><b>Every keybind, searchable.</b> <code>SUPER + SHIFT + /</code> lists all binds by category; type <code>glut</code> to see only the ones this setup adds. Click one to run it.</td>
   </tr>
   <tr>
     <td><img width="100%" alt="Desktop context menu" src=".github/assets/feat-contextmenu.jpg" /></td>
@@ -121,7 +121,7 @@ Reboot, pick Hyprland on the login screen, done. Re-running `install.sh` is safe
 
 ## Keybinds
 
-Keyboard first. `SUPER + SHIFT + /` shows every bind on screen.
+Keyboard first. `SUPER + SHIFT + /` shows every bind on screen; type `glut` there to filter to the custom ones below.
 
 | Keys | Action |
 | :--- | :--- |
