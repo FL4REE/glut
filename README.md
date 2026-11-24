@@ -20,12 +20,12 @@
     <td><img width="100%" alt="glut: terminal with neovim and fastfetch" src=".github/assets/terminal.jpg" /></td>
   </tr>
   <tr>
-    <td><img width="100%" alt="glut: grosse-welle theme" src=".github/assets/grosse-welle.jpg" /></td>
-    <td><img width="100%" alt="glut: synthwave84 theme" src=".github/assets/synthwave84.jpg" /></td>
+    <td><img width="100%" alt="glut: dmc theme" src=".github/assets/dmc.jpg" /></td>
+    <td><img width="100%" alt="glut: poimandres theme" src=".github/assets/poimandres.jpg" /></td>
   </tr>
   <tr>
-    <td><img width="100%" alt="glut: sakura theme" src=".github/assets/sakura.jpg" /></td>
-    <td><img width="100%" alt="glut: osaka-jade theme" src=".github/assets/osaka-jade.jpg" /></td>
+    <td><img width="100%" alt="glut: miasma theme" src=".github/assets/miasma.jpg" /></td>
+    <td><img width="100%" alt="glut: spectra theme" src=".github/assets/spectra.jpg" /></td>
   </tr>
 </table>
 
