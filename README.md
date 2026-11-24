@@ -17,7 +17,7 @@
 <table>
   <tr>
     <td><img width="100%" alt="glut: feuerhirsch theme" src=".github/assets/feuerhirsch.jpg" /></td>
-    <td><img width="100%" alt="glut: terminal with neovim and fastfetch" src=".github/assets/terminal.jpg" /></td>
+    <td><img width="100%" alt="glut: terminal with neovim and a theme-matched pokefetch" src=".github/assets/terminal.jpg" /></td>
   </tr>
   <tr>
     <td><img width="100%" alt="glut: dmc theme" src=".github/assets/dmc.jpg" /></td>
@@ -38,6 +38,49 @@
 - **Hardware-agnostic.** GPU drivers and microcode are not copied from my machine. CachyOS' `chwd` picks the right ones for yours.
 - **Wallpaper is the theme.** Pick a wallpaper and the whole desktop follows it: shell, window borders, terminal, prompt, editor, even the Pokémon that greets you in every new terminal.
 - **Offline where it counts.** Speech-to-text runs locally on the GPU, nothing leaves the machine.
+
+## Features
+
+<table>
+  <tr>
+    <td width="50%"><img width="100%" alt="Theme gallery" src=".github/assets/feat-gallery.jpg" /></td>
+    <td width="50%"><img width="100%" alt="Themes in the launcher" src=".github/assets/feat-launcher-themes.jpg" /></td>
+  </tr>
+  <tr>
+    <td><b>Theme gallery.</b> All 136 themes as live previews with their palettes. Click to apply, <i>Zufall</i> for a random one, <i>Online</i> to import more from aether, iTerm2 or Omarchy.</td>
+    <td><b>Themes in the launcher.</b> <code>SUPER + Space</code>, type <code>~</code>, pick a wallpaper. Also on <code>SUPER + ALT + T</code>, or <code>SUPER + ALT + N</code> for the next one.</td>
+  </tr>
+  <tr>
+    <td><img width="100%" alt="Wallpaper carousel" src=".github/assets/feat-carousel.jpg" /></td>
+    <td><img width="100%" alt="Terminal with pokefetch" src=".github/assets/terminal.jpg" /></td>
+  </tr>
+  <tr>
+    <td><b>Wallpaper carousel.</b> <code>SUPER + ALT + W</code> flips through every wallpaper full screen.</td>
+    <td><b>A Pokémon that matches.</b> Every new shell greets you with pokefetch. The Pokémon is picked from the 40 whose sprite colors are closest to the current theme.</td>
+  </tr>
+  <tr>
+    <td><img width="100%" alt="Dictation" src=".github/assets/feat-diktat.jpg" /></td>
+    <td><img width="100%" alt="Dashboard" src=".github/assets/feat-dash.jpg" /></td>
+  </tr>
+  <tr>
+    <td><b>Dictation, offline.</b> <code>SUPER + ALT + D</code>, speak, press again. Whisper transcribes on the GPU and types the text into the focused window.</td>
+    <td><b>Dashboard.</b> Clock, calendar, weather, media controls and notifications in one panel, on <code>SUPER + Y</code>.</td>
+  </tr>
+  <tr>
+    <td><img width="100%" alt="Control center" src=".github/assets/feat-control-center.jpg" /></td>
+    <td><img width="100%" alt="Keybind cheat sheet" src=".github/assets/feat-keybinds.jpg" /></td>
+  </tr>
+  <tr>
+    <td><b>Control center.</b> Brightness, volume, network, Bluetooth, audio devices, night mode, power profile, disk usage.</td>
+    <td><b>Every keybind, searchable.</b> <code>SUPER + SHIFT + /</code> lists all binds by category. Click one to run it.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><img width="100%" alt="Login screen" src=".github/assets/feat-login.jpg" /></td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Login screen.</b> SDDM with an animated Gargantua black hole (<a href="https://github.com/FL4REE/sddm-gargantua">sddm-gargantua</a>). The accretion disk moves.</td>
+  </tr>
+</table>
 
 ## Install
 
