@@ -1,0 +1,104 @@
+#!/usr/bin/env bash
+# diktat: Sprache-zu-Text per Hotkey, komplett offline (whisper.cpp).
+#
+# Erster Aufruf startet die Aufnahme, zweiter Aufruf stoppt sie, transkribiert
+# lokal, legt den Text in die Zwischenablage und tippt ihn ins aktive Fenster.
+#
+# Einstellungen per Umgebungsvariable:
+#   DIKTAT_MODEL  Modelldatei   (Standard: ~/.local/share/whisper/ggml-large-v3-turbo-q5_0.bin)
+#   DIKTAT_LANG   Sprache       (Standard: de, "auto" fuer automatische Erkennung)
+#   DIKTAT_TYPE   1 = eintippen, 0 = nur Zwischenablage (Standard: 1)
+#
+# Aufruf:  diktat           Aufnahme starten/stoppen
+#          diktat cancel    laufende Aufnahme verwerfen
+
+set -euo pipefail
+
+MODEL="${DIKTAT_MODEL:-$HOME/.local/share/whisper/ggml-large-v3-turbo-q5_0.bin}"
+LANG_CODE="${DIKTAT_LANG:-de}"
+TYPE_TEXT="${DIKTAT_TYPE:-1}"
+STATE="${XDG_RUNTIME_DIR:-/tmp}/diktat"
+PIDFILE="$STATE/rec.pid"
+WAV="$STATE/rec.wav"
+NOTIFY_ID="$STATE/notify.id"
+
+mkdir -p "$STATE"
+
+notify() {
+  # Eine einzige Benachrichtigung, die bei jedem Schritt ersetzt wird
+  local id args=(-a Diktat -p)
+  id=$(cat "$NOTIFY_ID" 2>/dev/null || true)
+  [[ -n $id ]] && args+=(-r "$id")
+  notify-send "${args[@]}" "$@" > "$NOTIFY_ID" 2>/dev/null || true
+}
+
+whisper_bin() {
+  command -v whisper-cli || command -v whisper-cpp || {
+    notify -u critical "Diktat" "whisper.cpp ist nicht installiert (Paket whisper-cpp)."
+    exit 1
+  }
+}
+
+recording() { [[ -f $PIDFILE ]] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; }
+
+stop_recorder() {
+  local pid
+  pid=$(cat "$PIDFILE")
+  kill -INT "$pid" 2>/dev/null || true
+  # warten, bis pw-record den WAV-Header fertig geschrieben hat
+  for _ in $(seq 50); do kill -0 "$pid" 2>/dev/null || break; sleep 0.1; done
+  rm -f "$PIDFILE"
+}
+
+# Nur eine Instanz gleichzeitig (Doppeldruck waehrend der Transkription)
+exec 9>"$STATE/lock"
+flock -n 9 || exit 0
+
+if [[ ${1:-} == cancel ]]; then
+  recording && stop_recorder
+  rm -f "$WAV"
+  notify -t 1500 "Diktat" "Verworfen."
+  exit 0
+fi
+
+if ! recording; then
+  [[ -f $MODEL ]] || { notify -u critical "Diktat" "Modell fehlt: $MODEL"; exit 1; }
+  whisper_bin >/dev/null
+  rm -f "$WAV" "$NOTIFY_ID"
+  # 9>&-: der Rekorder darf die Sperre nicht erben, sonst greift der 2. Druck nie
+  pw-record --rate 16000 --channels 1 --format s16 "$WAV" 9>&- &
+  echo $! > "$PIDFILE"
+  disown
+  notify -t 0 -i audio-input-microphone "Diktat" "Aufnahme läuft … nochmal drücken zum Beenden"
+  exit 0
+fi
+
+stop_recorder
+
+# Unter ~0,5 s (16 kHz * 2 Byte * 0,5 + Header) lohnt sich nichts
+if [[ ! -s $WAV ]] || (( $(stat -c %s "$WAV") < 16044 )); then
+  notify -t 1500 "Diktat" "Zu kurz, nichts erkannt."
+  rm -f "$WAV"
+  exit 0
+fi
+
+notify -t 0 -i audio-input-microphone "Diktat" "Transkribiere …"
+
+text=$("$(whisper_bin)" -m "$MODEL" -l "$LANG_CODE" -nt -np -f "$WAV" 2>/dev/null |
+  sed -E 's/^[[:space:]]+//; s/[[:space:]]+$//' | grep -v '^$' | paste -sd ' ' || true)
+rm -f "$WAV"
+
+# Typische Whisper-Halluzinationen bei Stille entfernen
+text=$(sed -E 's/\[[^]]*\]//g; s/\((Musik|Applaus|Lachen|Stille)\)//gI;
+  s/Untertitel (der|von|im Auftrag des) [^.]*\.?//g; s/[[:space:]]+/ /g; s/^ //; s/ $//' <<<"$text")
+
+if [[ -z $text ]]; then
+  notify -t 2000 "Diktat" "Nichts erkannt."
+  exit 0
+fi
+
+printf '%s' "$text" | wl-copy
+if [[ $TYPE_TEXT == 1 ]] && command -v wtype >/dev/null; then
+  wtype -- "$text" || true
+fi
+notify -t 4000 -i edit-paste "Diktat" "$text"

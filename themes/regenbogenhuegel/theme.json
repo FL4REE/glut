@@ -1,0 +1,32 @@
+{
+  "name": "regenbogenhuegel",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#0b0c0a",
+      "#98987f",
+      "#b6caae",
+      "#e7f9d4",
+      "#69887c",
+      "#b7ac8a",
+      "#c1e5c7",
+      "#f7f5f2",
+      "#62655f",
+      "#aeae8e",
+      "#c9e2be",
+      "#e5fbcd",
+      "#799f90",
+      "#d0c296",
+      "#d2ffd9",
+      "#f1f8ed"
+    ],
+    "background": "#0b0c0a",
+    "foreground": "#f7f5f2",
+    "accent": "#69887c",
+    "cursor": "#f7f5f2",
+    "selection": "#62655f"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

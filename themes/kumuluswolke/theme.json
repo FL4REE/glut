@@ -1,0 +1,32 @@
+{
+  "name": "kumuluswolke",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#060516",
+      "#908ac7",
+      "#66cff4",
+      "#78ffff",
+      "#557fb8",
+      "#8ea4f5",
+      "#74e3ff",
+      "#f0fcfe",
+      "#5d5d63",
+      "#a59dea",
+      "#56e9ff",
+      "#42ffff",
+      "#6094db",
+      "#9db8ff",
+      "#6bfdff",
+      "#eef6ff"
+    ],
+    "background": "#060516",
+    "foreground": "#f0fcfe",
+    "accent": "#557fb8",
+    "cursor": "#f0fcfe",
+    "selection": "#5d5d63"
+  },
+  "wallpaper": "wallpaper.png",
+  "source": "manuell"
+}

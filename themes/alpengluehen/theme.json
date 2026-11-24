@@ -1,0 +1,32 @@
+{
+  "name": "alpengluehen",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#00051c",
+      "#af6e62",
+      "#ebc48b",
+      "#ffdf9c",
+      "#5f77af",
+      "#a86864",
+      "#5a7cb1",
+      "#f3cfa1",
+      "#5a5d63",
+      "#db9080",
+      "#ffce68",
+      "#ffe671",
+      "#8199e1",
+      "#d38a84",
+      "#7b9fe3",
+      "#ffd984"
+    ],
+    "background": "#00051c",
+    "foreground": "#f3cfa1",
+    "accent": "#5f77af",
+    "cursor": "#f3cfa1",
+    "selection": "#5a5d63"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

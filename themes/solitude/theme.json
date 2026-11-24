@@ -1,0 +1,33 @@
+{
+  "name": "solitude",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#101315",
+      "#565d60",
+      "#9fa5a9",
+      "#d9dbdc",
+      "#798186",
+      "#aeaeae",
+      "#707070",
+      "#cbc2be",
+      "#4b4e55",
+      "#de6145",
+      "#343d41",
+      "#c9c2b4",
+      "#5d6367",
+      "#9a9a9a",
+      "#707070",
+      "#a5aeb4"
+    ],
+    "background": "#101315",
+    "foreground": "#cacccc",
+    "accent": "#798186",
+    "cursor": "#cacccc",
+    "selection": "#798186"
+  },
+  "wallpaper": "wallpaper.png",
+  "icon_theme": "Yaru-sage-dark",
+  "source": "omarchy:https://github.com/HANCORE-linux/omarchy-solitude-theme"
+}

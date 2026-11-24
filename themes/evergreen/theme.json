@@ -1,0 +1,33 @@
+{
+  "name": "evergreen",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#101913",
+      "#c87a5c",
+      "#6aae52",
+      "#c4a64e",
+      "#4a9a68",
+      "#8a7856",
+      "#52987a",
+      "#a1af9c",
+      "#4a684a",
+      "#d89268",
+      "#82c45a",
+      "#d4ba60",
+      "#5aae7a",
+      "#a08e66",
+      "#48aa82",
+      "#a1af9c"
+    ],
+    "background": "#101913",
+    "foreground": "#a1af9c",
+    "accent": "#4a9a68",
+    "cursor": "#a1af9c",
+    "selection": "#4a684a"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-yellow",
+  "source": "omarchy:https://github.com/bjarneo/omarchy-evergreen-theme"
+}

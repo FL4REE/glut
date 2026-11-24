@@ -1,0 +1,33 @@
+{
+  "name": "akane",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#12101c",
+      "#d6453d",
+      "#7e9a6a",
+      "#f0b45a",
+      "#5b7fa8",
+      "#c45c78",
+      "#4a9bb0",
+      "#f0c4a8",
+      "#6d5a68",
+      "#f06a58",
+      "#9ab57e",
+      "#f6cc7a",
+      "#7a9cc4",
+      "#e07a94",
+      "#7ec4d2",
+      "#f0c4a8"
+    ],
+    "background": "#12101c",
+    "foreground": "#f0c4a8",
+    "accent": "#e15a48",
+    "cursor": "#f0c4a8",
+    "selection": "#6d5a68"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-red",
+  "source": "omarchy:https://github.com/Grenish/omarchy-akane-theme"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "void",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#382952",
+      "#f07178",
+      "#c2b8ff",
+      "#ddccff",
+      "#bb9af7",
+      "#b49ae6",
+      "#a6b8ff",
+      "#deccff",
+      "#6b578f",
+      "#ff8a95",
+      "#b3a8f7",
+      "#d1bff7",
+      "#cba6f8",
+      "#c4aaf0",
+      "#c2ccff",
+      "#c3aaf0"
+    ],
+    "background": "#05010c",
+    "foreground": "#ffffff",
+    "accent": "#bb9af7",
+    "cursor": "#814dde",
+    "selection": "#ffffff"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-purple",
+  "source": "omarchy:https://github.com/vyrx-dev/omarchy-void-theme"
+}

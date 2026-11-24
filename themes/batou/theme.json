@@ -1,0 +1,33 @@
+{
+  "name": "batou",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#121212",
+      "#e19e74",
+      "#a5a297",
+      "#c6c4b0",
+      "#605d5b",
+      "#8a8575",
+      "#c2bbb0",
+      "#dbd9d3",
+      "#383735",
+      "#984b1e",
+      "#637380",
+      "#8f4445",
+      "#b7a798",
+      "#b3adad",
+      "#90947a",
+      "#a4a4a4"
+    ],
+    "background": "#121212",
+    "foreground": "#a4a4a4",
+    "accent": "#605d5b",
+    "cursor": "#a4a4a4",
+    "selection": "#a4a4a4"
+  },
+  "wallpaper": "wallpaper.png",
+  "icon_theme": "Yaru-yellow",
+  "source": "omarchy:https://github.com/HANCORE-linux/omarchy-batou-theme"
+}

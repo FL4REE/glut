@@ -1,0 +1,62 @@
+#!/bin/sh
+# livewallpaper [WORKSHOP-ID | pick | random | stop]
+# Startet einen Wallpaper-Engine-Hintergrund (linux-wallpaperengine) und blendet
+# solange den DMS-Hintergrund aus. Ohne Argument: zuletzt gewählten wieder starten.
+state="$HOME/.config/livewallpaper-id"
+settings="$HOME/.config/DankMaterialShell/settings.json"
+
+# DMS-Hintergrund an/aus: leere Bildschirmliste = kein DMS-Wallpaper
+dms_wallpaper() {
+	python3 - "$settings" "$1" <<'EOF'
+import json, sys
+p, on = sys.argv[1], sys.argv[2] == "on"
+d = json.load(open(p))
+d.setdefault("screenPreferences", {})["wallpaper"] = ["all"] if on else []
+json.dump(d, open(p, "w"), indent=2, ensure_ascii=False)
+EOF
+}
+
+stop_player() {
+	systemctl --user stop livewallpaper 2>/dev/null
+	pkill -x linux-wallpaper 2>/dev/null  # ältere Instanzen außerhalb der Unit; Kernel kürzt Namen auf 15 Zeichen
+}
+
+case "$1" in
+	stop) stop_player; rm -f "$state"; dms_wallpaper on; exit 0 ;;
+	pick)
+		# zenity --list hat kein echtes Suchfeld, daher erst Suchbegriff abfragen (leer = alle)
+		term=$(zenity --entry --title="Live-Hintergrund suchen" \
+			--text="Suchbegriff (Titel oder Tag, leer lassen für alle):") || exit 0
+		# Liste "Titel, Typ, ID" aus den project.json-Dateien, Auswahl per zenity
+		id=$(python3 - "$term" <<'EOF' | zenity --list --title="Live-Hintergrund wählen" --width=700 --height=600 \
+			--column=Titel --column=Typ --column=ID --print-column=3 --separator=
+import json, glob, os, sys
+term = sys.argv[1].strip().lower()
+for p in sorted(glob.glob(os.path.expanduser("~/.local/share/Steam/steamapps/workshop/content/431960/*/project.json"))):
+    try: j = json.load(open(p, encoding="utf-8"))
+    except Exception: continue
+    title = (j.get("title") or "?").strip()
+    if term and term not in " ".join([title, *map(str, j.get("tags") or [])]).lower(): continue
+    print(title, j.get("type") or "?", os.path.basename(os.path.dirname(p)), sep="\n")
+EOF
+		)
+		[ -n "$id" ] || exit 0  # abgebrochen: laufenden Hintergrund nicht anfassen
+		echo "$id" > "$state" ;;
+	random)
+		dir="$HOME/.local/share/Steam/steamapps/workshop/content/431960"
+		cur=$(cat "$state" 2>/dev/null)
+		basename "$(ls -d "$dir"/*/ | grep -v "/$cur/$" | shuf -n1)" > "$state" ;;
+	"") ;;
+	*) echo "$1" > "$state" ;;
+esac
+
+[ -s "$state" ] || exit 0
+stop_player
+dms_wallpaper off
+# shortcut: fest auf einen Monitor, bei mehreren Monitoren je ein --screen-root ergänzen
+# --layer background: auf "bottom" (Standard) würde es das Kontextmenü-Widget verdecken
+# Eigene systemd-Unit: sonst landet der Player (aus dem Kontextmenü gestartet) in
+# dms.service und wird bei jedem DMS-Neustart mit beendet.
+systemd-run --user --quiet --collect --unit=livewallpaper \
+	-E WAYLAND_DISPLAY -E XDG_RUNTIME_DIR -E HOME -E PATH \
+	linux-wallpaperengine --silent --screen-root HDMI-A-2 --bg "$(cat "$state")" --scaling fill --layer background

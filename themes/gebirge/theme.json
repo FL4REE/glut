@@ -1,0 +1,32 @@
+{
+  "name": "Gebirge",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#00061e",
+      "#958ec1",
+      "#7fcff1",
+      "#98ffff",
+      "#6281b2",
+      "#99a7ec",
+      "#90e4ff",
+      "#ececeb",
+      "#5c5f64",
+      "#aba1e2",
+      "#7ce9ff",
+      "#78ffff",
+      "#7096d3",
+      "#aabbff",
+      "#92fdff",
+      "#eff6ff"
+    ],
+    "background": "#00061e",
+    "foreground": "#ececeb",
+    "accent": "#6281b2",
+    "cursor": "#ececeb",
+    "selection": "#ececeb"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "aether-blueprint:Gebirge.json"
+}

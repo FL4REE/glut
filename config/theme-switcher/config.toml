@@ -1,0 +1,36 @@
+# ~/.config/theme-switcher/config.toml  (alles optional)
+
+[targets]
+dms = true        # DMS-Theme schreiben und aktivieren (färbt über Matugen auch Hyprland)
+wallpaper = true  # Hintergrund per "dms ipc call wallpaper set" setzen
+hyprland = false  # eigene hypr/theme-switcher.lua (nur wenn du dms.colors nicht nutzt)
+ghostty = false   # ~/.config/ghostty/themes/theme-switcher schreiben
+
+[paths]
+# themes_dir = "~/.local/share/theme-switcher/themes"
+# aether_dir = "~/.config/aether"
+
+[hooks]
+# Befehle nach jedem Wechsel; {name} und {dir} werden ersetzt
+post_apply = [
+  # "notify-send 'Theme' '{name}'",
+]
+
+[icons]
+# style = "adwaita"   # Ordner/Symbole in Akzentfarbe (Standard)
+apps = "MacTahoe"     # App-Icons (Dock, Launcher) im macOS-Tahoe-Stil
+
+# Apps ohne eigenes MacTahoe-Icon: Icon-Name der App = MacTahoe-Icon
+[icons.aliases]
+helium-browser = "helium"
+claude-desktop = "claude"
+ollama-chat = "ollama"
+zapfast = "whatsapp-desktop"
+spotifast = "spotify-client"
+alexa-desktop-hub = "home-assistant"
+modrinth-app = "modrinth"
+curseforge = "minecraft-launcher"
+icloud-notes = "accessories-notes"
+"ai.storyteller.artcraft-launcher" = "accessories-painting"
+lemonstudio = "cockos-reaper"
+buecherregal = "accessories-ebook-reader"

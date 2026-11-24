@@ -1,0 +1,32 @@
+{
+  "name": "tatami",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#090704",
+      "#a58bad",
+      "#a4c6f1",
+      "#ffdcff",
+      "#7d7ba6",
+      "#b5a1d6",
+      "#c1d8ff",
+      "#a0a9d6",
+      "#605d57",
+      "#bf9ec9",
+      "#b0ddff",
+      "#ffd7ff",
+      "#928ec3",
+      "#ceb3f7",
+      "#d2efff",
+      "#f5f3ff"
+    ],
+    "background": "#090704",
+    "foreground": "#a0a9d6",
+    "accent": "#7d7ba6",
+    "cursor": "#a0a9d6",
+    "selection": "#605d57"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

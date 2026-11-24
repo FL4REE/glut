@@ -1,0 +1,37 @@
+{
+  "wallpaperCarousel": {
+    "enabled": true,
+    "wallpaperDirectory": "/home/erik/Bilder/Wallpaper",
+    "overlayOpacity": 79
+  },
+  "discordVoice": {
+    "enabled": true
+  },
+  "wallpaperBing": {
+    "enabled": true
+  },
+  "desktopContextMenu": {
+    "enabled": true
+  },
+  "fussballTicker": {
+    "enabled": true
+  },
+  "runCat": {
+    "enabled": true
+  },
+  "claudeCodeUsage": {
+    "enabled": true,
+    "refreshInterval": 2
+  },
+  "mediaFlyouts": {
+    "enabled": true,
+    "posX": 86.77734375,
+    "posY": 48.80078125
+  },
+  "themeSwitcher": {
+    "enabled": true
+  },
+  "themeGallery": {
+    "enabled": true
+  }
+}

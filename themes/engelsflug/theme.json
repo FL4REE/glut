@@ -1,0 +1,32 @@
+{
+  "name": "engelsflug",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#0f0706",
+      "#bd8a59",
+      "#ddc16b",
+      "#ffeb86",
+      "#b46959",
+      "#ea9467",
+      "#e6e06a",
+      "#dcc287",
+      "#665f5d",
+      "#dc9c5e",
+      "#fbd662",
+      "#ffe863",
+      "#d47865",
+      "#ffa268",
+      "#fff85e",
+      "#fbf4ea"
+    ],
+    "background": "#0f0706",
+    "foreground": "#dcc287",
+    "accent": "#b46959",
+    "cursor": "#dcc287",
+    "selection": "#665f5d"
+  },
+  "wallpaper": "wallpaper.png",
+  "source": "manuell"
+}

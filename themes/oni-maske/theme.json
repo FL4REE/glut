@@ -1,0 +1,32 @@
+{
+  "name": "oni-maske",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#070513",
+      "#c47c81",
+      "#fca886",
+      "#ffcfb1",
+      "#a7648c",
+      "#e688a7",
+      "#ffb6ff",
+      "#edede6",
+      "#5d5c63",
+      "#e58b92",
+      "#ffb789",
+      "#ffc9a5",
+      "#c573a4",
+      "#ff93bd",
+      "#ffc4ff",
+      "#fff1f3"
+    ],
+    "background": "#070513",
+    "foreground": "#edede6",
+    "accent": "#a7648c",
+    "cursor": "#edede6",
+    "selection": "#5d5c63"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

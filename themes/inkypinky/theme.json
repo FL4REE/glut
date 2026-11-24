@@ -1,0 +1,33 @@
+{
+  "name": "inkypinky",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#13131d",
+      "#ea90a8",
+      "#a6b2c7",
+      "#d18ba2",
+      "#7c7ca8",
+      "#9f859f",
+      "#919ab7",
+      "#a1a2a7",
+      "#434353",
+      "#f6bfce",
+      "#d1d9e4",
+      "#e3aebf",
+      "#bcbcd4",
+      "#bfadbf",
+      "#d2d7e3",
+      "#c8c8c8"
+    ],
+    "background": "#13131d",
+    "foreground": "#c8c8c8",
+    "accent": "#7c7ca8",
+    "cursor": "#c8c8c8",
+    "selection": "#c8c8c8"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-magenta",
+  "source": "omarchy:https://github.com/HANCORE-linux/omarchy-inkypinky-theme"
+}

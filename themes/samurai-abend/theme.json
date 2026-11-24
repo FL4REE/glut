@@ -1,0 +1,32 @@
+{
+  "name": "samurai-abend",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#030617",
+      "#af88a1",
+      "#ecb1ba",
+      "#ffdbee",
+      "#8b769e",
+      "#c59cc8",
+      "#d9d1ff",
+      "#d0a5a3",
+      "#5b5d64",
+      "#ca9bb9",
+      "#ffc1ce",
+      "#ffd5ee",
+      "#a389b9",
+      "#e1ade5",
+      "#f0e5ff",
+      "#faf2fb"
+    ],
+    "background": "#030617",
+    "foreground": "#d0a5a3",
+    "accent": "#8b769e",
+    "cursor": "#d0a5a3",
+    "selection": "#5b5d64"
+  },
+  "wallpaper": "wallpaper.webp",
+  "source": "manuell"
+}

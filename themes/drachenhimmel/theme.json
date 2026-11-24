@@ -1,0 +1,32 @@
+{
+  "name": "drachenhimmel",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#000a14",
+      "#8392ce",
+      "#5dd7e8",
+      "#73ffff",
+      "#4287b6",
+      "#79aef7",
+      "#58eeff",
+      "#dfe7e3",
+      "#5b6165",
+      "#93a7f1",
+      "#41f3ff",
+      "#23ffff",
+      "#469ed8",
+      "#7fc4ff",
+      "#34ffff",
+      "#ecf7fe"
+    ],
+    "background": "#000a14",
+    "foreground": "#dfe7e3",
+    "accent": "#4287b6",
+    "cursor": "#dfe7e3",
+    "selection": "#5b6165"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

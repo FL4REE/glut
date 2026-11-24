@@ -1,0 +1,32 @@
+{
+  "name": "grosse-welle",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#060613",
+      "#9c90a7",
+      "#abc7de",
+      "#d2f8ff",
+      "#7a7f99",
+      "#aca7c9",
+      "#c4dcff",
+      "#a1a195",
+      "#5d5d64",
+      "#b3a4c1",
+      "#bbdefc",
+      "#caf9ff",
+      "#8d93b3",
+      "#c2bce7",
+      "#d6f3ff",
+      "#f3f4ff"
+    ],
+    "background": "#060613",
+    "foreground": "#a1a195",
+    "accent": "#7a7f99",
+    "cursor": "#a1a195",
+    "selection": "#5d5d64"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

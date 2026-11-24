@@ -1,0 +1,33 @@
+{
+  "name": "giants",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#27241f",
+      "#b3826a",
+      "#cac4a2",
+      "#fff2c8",
+      "#97786d",
+      "#c6a48e",
+      "#d9dfb2",
+      "#e1d5c2",
+      "#8a857a",
+      "#bea78c",
+      "#e2dbae",
+      "#fff1be",
+      "#b28b7e",
+      "#e3b89b",
+      "#f0f7c0",
+      "#e1d5c2"
+    ],
+    "background": "#27241f",
+    "foreground": "#e1d5c2",
+    "accent": "#97786d",
+    "cursor": "#e1d5c2",
+    "selection": "#8a857a"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-wartybrown",
+  "source": "omarchy:https://github.com/dhh/omarchy-giants-theme"
+}

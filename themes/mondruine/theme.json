@@ -1,0 +1,32 @@
+{
+  "name": "mondruine",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#070610",
+      "#9f8db3",
+      "#9ac9ef",
+      "#b9fcff",
+      "#757da8",
+      "#aba4db",
+      "#b3ddff",
+      "#e7dcbd",
+      "#5d5d63",
+      "#b7a0d0",
+      "#a3e1ff",
+      "#aafeff",
+      "#8791c7",
+      "#c2b7fe",
+      "#c1f4ff",
+      "#f2f4ff"
+    ],
+    "background": "#070610",
+    "foreground": "#e7dcbd",
+    "accent": "#757da8",
+    "cursor": "#e7dcbd",
+    "selection": "#5d5d63"
+  },
+  "wallpaper": "wallpaper.png",
+  "source": "manuell"
+}

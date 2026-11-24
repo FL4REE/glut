@@ -1,0 +1,33 @@
+{
+  "name": "ayaka",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#262626",
+      "#e65c5c",
+      "#66cc66",
+      "#ffcc66",
+      "#6699ff",
+      "#cc66cc",
+      "#66cccc",
+      "#f2f2f2",
+      "#404040",
+      "#ff6666",
+      "#80e680",
+      "#ffdd80",
+      "#80b3ff",
+      "#e680e6",
+      "#80e6e6",
+      "#ffffff"
+    ],
+    "background": "#000000",
+    "foreground": "#e6e6e6",
+    "accent": "#e65c5c",
+    "cursor": "#ffcc66",
+    "selection": "#2a2a2a"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-olive",
+  "source": "omarchy:https://github.com/abhijeet-swami/omarchy-ayaka-theme"
+}

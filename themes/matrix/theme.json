@@ -1,0 +1,33 @@
+{
+  "name": "matrix",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#0d0208",
+      "#f6fff6",
+      "#b8ffb7",
+      "#86dd82",
+      "#29c22f",
+      "#5e9e59",
+      "#83fc88",
+      "#00ff41",
+      "#247d25",
+      "#fcfffc",
+      "#d0ffcf",
+      "#b7f0b3",
+      "#61dd5f",
+      "#edfeec",
+      "#afe1aa",
+      "#00ff41"
+    ],
+    "background": "#0d0208",
+    "foreground": "#00ff41",
+    "accent": "#00ff41",
+    "cursor": "#00ff41",
+    "selection": "#247d25"
+  },
+  "wallpaper": "wallpaper.webp",
+  "icon_theme": "Yaru-olive",
+  "source": "omarchy:https://github.com/bjarneo/omarchy-matrix-theme"
+}

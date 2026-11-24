@@ -1,0 +1,32 @@
+{
+  "name": "sternenhorizont",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#010307",
+      "#bc6056",
+      "#b76a31",
+      "#ec8d3d",
+      "#5979c9",
+      "#bf615f",
+      "#4c77c5",
+      "#eb9457",
+      "#5e6268",
+      "#ea8173",
+      "#e48d41",
+      "#ffaf42",
+      "#7a9aff",
+      "#ee827e",
+      "#6d99fc",
+      "#ffb462"
+    ],
+    "background": "#010307",
+    "foreground": "#eb9457",
+    "accent": "#5979c9",
+    "cursor": "#eb9457",
+    "selection": "#5e6268"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "runCat",
+  "name": "RunCat",
+  "description": "Laufende Katze in der Bar, deren Tempo sich nach der CPU-Last richtet (Portierung von bzglve/runcat-text als natives DMS-Widget)",
+  "version": "1.0.0",
+  "author": "Erik",
+  "icon": "pets",
+  "type": "widget",
+  "capabilities": ["dankbar-widget"],
+  "component": "./RunCatWidget.qml",
+  "settings": "./RunCatSettings.qml",
+  "requires_dms": ">=1.5.0",
+  "permissions": ["settings_read", "settings_write", "process"]
+}

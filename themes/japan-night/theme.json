@@ -1,0 +1,32 @@
+{
+  "name": "japan-night",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#0b1b2b",
+      "#b9968f",
+      "#708c8b",
+      "#7b8768",
+      "#2b5e8f",
+      "#886a64",
+      "#638f92",
+      "#b9b6a7",
+      "#294857",
+      "#be928a",
+      "#84a6a5",
+      "#7b8a65",
+      "#4d6a94",
+      "#8c6760",
+      "#7aa8ab",
+      "#b9b6a7"
+    ],
+    "background": "#0b1b2b",
+    "foreground": "#b9b6a7",
+    "accent": "#2b5e8f",
+    "cursor": "#b9b6a7",
+    "selection": "#294857"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "omarchy:https://github.com/devgtv/omarchy-japan-night-theme"
+}

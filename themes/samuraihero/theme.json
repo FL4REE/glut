@@ -1,0 +1,32 @@
+{
+  "name": "Samuraihero",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#230310",
+      "#c88769",
+      "#f1bb72",
+      "#ffe493",
+      "#b76970",
+      "#f29182",
+      "#ffd866",
+      "#fddb76",
+      "#6f686a",
+      "#e89872",
+      "#ffce6b",
+      "#ffdb72",
+      "#d87781",
+      "#ff9d8b",
+      "#ffea54",
+      "#fef3ec"
+    ],
+    "background": "#230310",
+    "foreground": "#fddb76",
+    "accent": "#b76970",
+    "cursor": "#fddb76",
+    "selection": "#fddb76"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "aether-blueprint:Samuraihero.json"
+}

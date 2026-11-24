@@ -1,0 +1,33 @@
+{
+  "name": "ash",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#121212",
+      "#8a8a8a",
+      "#767676",
+      "#9e9e9e",
+      "#626262",
+      "#8a8a8a",
+      "#767676",
+      "#e0e0e0",
+      "#5a5a5a",
+      "#9e9e9e",
+      "#767676",
+      "#b2b2b2",
+      "#626262",
+      "#8a8a8a",
+      "#9e9e9e",
+      "#e0e0e0"
+    ],
+    "background": "#121212",
+    "foreground": "#e0e0e0",
+    "accent": "#626262",
+    "cursor": "#e0e0e0",
+    "selection": "#5a5a5a"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-grey",
+  "source": "omarchy:https://github.com/bjarneo/omarchy-ash-theme"
+}

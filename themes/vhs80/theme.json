@@ -1,0 +1,33 @@
+{
+  "name": "vhs80",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#333333",
+      "#862020",
+      "#277d46",
+      "#a85511",
+      "#8b7f2e",
+      "#932a37",
+      "#2f8383",
+      "#bebebe",
+      "#8a8a8d",
+      "#c73838",
+      "#5bb775",
+      "#e07924",
+      "#c6b441",
+      "#c73838",
+      "#46bebe",
+      "#eaeaea"
+    ],
+    "background": "#121212",
+    "foreground": "#d4d4d4",
+    "accent": "#862020",
+    "cursor": "#a85511",
+    "selection": "#a85511"
+  },
+  "wallpaper": "wallpaper.png",
+  "icon_theme": "Yaru-yellow",
+  "source": "omarchy:https://github.com/tahayvr/omarchy-vhs80-theme"
+}

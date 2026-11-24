@@ -1,0 +1,14 @@
+{
+  "id": "desktopContextMenu",
+  "name": "Desktop Context Menu",
+  "description": "Windows-artiges Rechtsklick-Kontextmenü auf dem Desktop (Apps, Update, Power, Screenshot, ...)",
+  "version": "1.0.0",
+  "author": "Erik",
+  "icon": "menu",
+  "type": "desktop",
+  "capabilities": ["desktop-widget"],
+  "component": "./DesktopContextMenu.qml",
+  "settings": "./DesktopContextMenuSettings.qml",
+  "requires_dms": ">=1.2.0",
+  "permissions": ["settings_read", "settings_write", "process"]
+}

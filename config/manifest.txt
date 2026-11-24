@@ -1,0 +1,20 @@
+# confsync: welche Live-Pfade ins Repo gespiegelt werden.
+# <Pfad relativ zu $HOME>   <Pfad im Repo>
+# Ordner werden 1:1 gespiegelt (auch Loeschungen), Ausnahmen in exclude.txt.
+
+.config/hypr                          config/hypr
+.config/dms                           config/dms
+.config/ghostty                       config/ghostty
+.config/fish                          config/fish
+.config/nvim                          config/nvim
+.config/shelly                        config/shelly
+.config/theme-switcher                config/theme-switcher
+.config/starship.toml                 config/starship/starship.toml
+.zshrc                                home/zshrc
+.local/share/theme-switcher/themes    themes
+
+# eigene DMS-Plugins (Quellen unter ~/Projekte)
+Projekte/Contextmenu/DesktopContextMenu     projects/DesktopContextMenu
+Projekte/Fussball-Ticker/FussballTicker     projects/FussballTicker
+Projekte/RunCat/RunCatWidget                projects/RunCat
+Projekte/MediaFlyouts                       projects/MediaFlyouts

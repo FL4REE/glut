@@ -1,0 +1,32 @@
+{
+  "name": "bushaltestelle",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#050808",
+      "#b28e6a",
+      "#d3c386",
+      "#ffefa7",
+      "#a77062",
+      "#d99c79",
+      "#dfe08f",
+      "#e3cfac",
+      "#575f5f",
+      "#cea274",
+      "#eed989",
+      "#ffee92",
+      "#c58270",
+      "#fcad80",
+      "#f7f993",
+      "#fbf4ea"
+    ],
+    "background": "#050808",
+    "foreground": "#e3cfac",
+    "accent": "#a77062",
+    "cursor": "#e3cfac",
+    "selection": "#575f5f"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

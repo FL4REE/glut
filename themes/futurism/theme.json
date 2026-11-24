@@ -1,0 +1,33 @@
+{
+  "name": "futurism",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#0a1428",
+      "#ff40a3",
+      "#00bfff",
+      "#5076b2",
+      "#f0f8ff",
+      "#ff40a3",
+      "#f0f8ff",
+      "#f0f8ff",
+      "#53627a",
+      "#ff40a3",
+      "#00bfff",
+      "#6a90d2",
+      "#00bfff",
+      "#ff40a3",
+      "#00bfff",
+      "#f0f8ff"
+    ],
+    "background": "#0a1428",
+    "foreground": "#f0f8ff",
+    "accent": "#ff40a3",
+    "cursor": "#f0f8ff",
+    "selection": "#53627a"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-magenta",
+  "source": "omarchy:https://github.com/bjarneo/omarchy-futurism-theme"
+}

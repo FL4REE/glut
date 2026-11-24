@@ -1,0 +1,32 @@
+{
+  "name": "wolkenriese",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#000418",
+      "#9a7b44",
+      "#6f8647",
+      "#9da45b",
+      "#657cb3",
+      "#607bb8",
+      "#a4cb80",
+      "#f9eecd",
+      "#65686e",
+      "#c2a056",
+      "#90ad57",
+      "#c2cc69",
+      "#879fe5",
+      "#829dec",
+      "#a7de62",
+      "#feeba5"
+    ],
+    "background": "#000418",
+    "foreground": "#f9eecd",
+    "accent": "#657cb3",
+    "cursor": "#f9eecd",
+    "selection": "#65686e"
+  },
+  "wallpaper": "wallpaper.png",
+  "source": "manuell"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "laternenweg",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#03010a",
+      "#958bba",
+      "#83caed",
+      "#9efeff",
+      "#657dad",
+      "#9ba3e4",
+      "#97dfff",
+      "#b8e1ee",
+      "#605f65",
+      "#ab9eda",
+      "#85e4ff",
+      "#88ffff",
+      "#7492cd",
+      "#aeb7ff",
+      "#9df7ff",
+      "#f0f5ff"
+    ],
+    "background": "#03010a",
+    "foreground": "#b8e1ee",
+    "accent": "#657dad",
+    "cursor": "#b8e1ee",
+    "selection": "#605f65"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

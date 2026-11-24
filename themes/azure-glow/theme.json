@@ -1,0 +1,33 @@
+{
+  "name": "azure-glow",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#0d1b26",
+      "#0099cc",
+      "#00e0b8",
+      "#33ccff",
+      "#00aaff",
+      "#3399ff",
+      "#66e0ff",
+      "#cceeff",
+      "#123247",
+      "#33ccff",
+      "#33ffdd",
+      "#66ddff",
+      "#33bbff",
+      "#66b2ff",
+      "#99eeff",
+      "#ffffff"
+    ],
+    "background": "#0a0f1a",
+    "foreground": "#a8dfff",
+    "accent": "#00ccff",
+    "cursor": "#00ccff",
+    "selection": "#123247"
+  },
+  "wallpaper": "wallpaper.png",
+  "icon_theme": "Yaru-blue",
+  "source": "omarchy:https://github.com/Hydradevx/omarchy-azure-glow-theme"
+}

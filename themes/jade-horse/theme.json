@@ -1,0 +1,33 @@
+{
+  "name": "jade-horse",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#142620",
+      "#d88d91",
+      "#8bcbb1",
+      "#c5cc91",
+      "#96b7d0",
+      "#b7a1c8",
+      "#86c7c5",
+      "#dfede5",
+      "#64887b",
+      "#e6a6aa",
+      "#a7dfc5",
+      "#dce1ac",
+      "#b0cde3",
+      "#cfbce0",
+      "#a2dcda",
+      "#dfede5"
+    ],
+    "background": "#142620",
+    "foreground": "#dfede5",
+    "accent": "#8bcbb1",
+    "cursor": "#dfede5",
+    "selection": "#64887b"
+  },
+  "wallpaper": "wallpaper.webp",
+  "icon_theme": "Yaru-sage",
+  "source": "omarchy:https://github.com/dhh/omarchy-jade-horse-theme"
+}

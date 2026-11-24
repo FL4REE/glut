@@ -1,0 +1,33 @@
+{
+  "name": "mechanoonna",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#1c1b19",
+      "#c5564a",
+      "#a89984",
+      "#ebdbb2",
+      "#908d88",
+      "#afa499",
+      "#d4bd99",
+      "#fbf1c7",
+      "#6b655c",
+      "#d94e38",
+      "#c2a571",
+      "#f7df97",
+      "#aaa090",
+      "#cbae8e",
+      "#e7c07c",
+      "#fff8e8"
+    ],
+    "background": "#1c1b19",
+    "foreground": "#f0e4c5",
+    "accent": "#d4bd99",
+    "cursor": "#f0e4c5",
+    "selection": "#706e6b"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-sage",
+  "source": "omarchy:https://github.com/HANCORE-linux/omarchy-mechanoonna-theme"
+}

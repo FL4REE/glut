@@ -1,0 +1,32 @@
+{
+  "name": "hoehenlinien",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#000000",
+      "#b27fae",
+      "#9dbeff",
+      "#ffcafa",
+      "#8570b1",
+      "#c492df",
+      "#c4ccff",
+      "#e4b1ff",
+      "#686163",
+      "#cf8fca",
+      "#aad4ff",
+      "#ffc3ff",
+      "#9b81d2",
+      "#e1a1ff",
+      "#d7e0ff",
+      "#f8f3fd"
+    ],
+    "background": "#000000",
+    "foreground": "#e4b1ff",
+    "accent": "#8570b1",
+    "cursor": "#e4b1ff",
+    "selection": "#686163"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

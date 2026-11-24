@@ -1,0 +1,7 @@
+[Unit]
+Description=glut: Configs und Paketlisten mit dem System abgleichen
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/confsync update --commit --notify
+ExecStart=%h/.local/bin/pkgsync update --push --notify

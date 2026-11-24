@@ -1,0 +1,32 @@
+{
+  "name": "punkrock",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#000000",
+      "#b18591",
+      "#e9afa7",
+      "#ffd9d7",
+      "#927090",
+      "#cc96b5",
+      "#e9c7ff",
+      "#fae6e9",
+      "#686163",
+      "#ce96a7",
+      "#ffc0b6",
+      "#ffd7d5",
+      "#ac82aa",
+      "#eba7ce",
+      "#ffdaff",
+      "#fef1f6"
+    ],
+    "background": "#000000",
+    "foreground": "#fae6e9",
+    "accent": "#927090",
+    "cursor": "#fae6e9",
+    "selection": "#686163"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

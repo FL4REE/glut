@@ -1,0 +1,32 @@
+{
+  "name": "regenstrasse",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#000912",
+      "#8e93b6",
+      "#93cedd",
+      "#b5ffff",
+      "#6484a2",
+      "#95acd9",
+      "#a1e5ff",
+      "#acc7df",
+      "#5a5f64",
+      "#a2a8d4",
+      "#99e8fc",
+      "#a3ffff",
+      "#7399bf",
+      "#a5c2fc",
+      "#a9ffff",
+      "#edf7ff"
+    ],
+    "background": "#000912",
+    "foreground": "#acc7df",
+    "accent": "#6484a2",
+    "cursor": "#acc7df",
+    "selection": "#5a5f64"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

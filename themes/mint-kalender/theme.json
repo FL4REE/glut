@@ -1,0 +1,32 @@
+{
+  "name": "mint-kalender",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#000000",
+      "#979574",
+      "#b2c8a2",
+      "#e4f7c6",
+      "#608775",
+      "#b9a77c",
+      "#b9e4bb",
+      "#f2eeeb",
+      "#686163",
+      "#aeab81",
+      "#c5e1b0",
+      "#e5fcc0",
+      "#6e9f88",
+      "#d4bd85",
+      "#c9fecb",
+      "#f2f7ed"
+    ],
+    "background": "#000000",
+    "foreground": "#f2eeeb",
+    "accent": "#608775",
+    "cursor": "#f2eeeb",
+    "selection": "#686163"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

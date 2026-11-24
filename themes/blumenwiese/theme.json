@@ -1,0 +1,32 @@
+{
+  "name": "blumenwiese",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#000900",
+      "#cb686d",
+      "#70a857",
+      "#cceb43",
+      "#688ae9",
+      "#a461ac",
+      "#009bb0",
+      "#fbfaf6",
+      "#585d57",
+      "#fa888e",
+      "#8fd263",
+      "#d4fe00",
+      "#8aabff",
+      "#cf7fde",
+      "#32c2dd",
+      "#f3ecc9"
+    ],
+    "background": "#000900",
+    "foreground": "#fbfaf6",
+    "accent": "#688ae9",
+    "cursor": "#fbfaf6",
+    "selection": "#585d57"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

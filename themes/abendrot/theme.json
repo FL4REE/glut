@@ -1,0 +1,32 @@
+{
+  "name": "Abendrot",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#060b11",
+      "#c57f87",
+      "#feab8e",
+      "#ffd3ba",
+      "#a76891",
+      "#e68cae",
+      "#ffbbff",
+      "#ffcdbf",
+      "#5f6368",
+      "#e68f99",
+      "#ffba93",
+      "#ffcaac",
+      "#c577aa",
+      "#ff98c4",
+      "#ffcaff",
+      "#fff1f3"
+    ],
+    "background": "#060b11",
+    "foreground": "#ffcdbf",
+    "accent": "#a76891",
+    "cursor": "#ffcdbf",
+    "selection": "#ffcdbf"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "aether-blueprint:Abendrot.json"
+}

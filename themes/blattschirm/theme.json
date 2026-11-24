@@ -1,0 +1,32 @@
+{
+  "name": "blattschirm",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#050607",
+      "#628351",
+      "#588a45",
+      "#6b9952",
+      "#6680ae",
+      "#5a79a3",
+      "#41857f",
+      "#d5e5e8",
+      "#575c61",
+      "#82aa66",
+      "#76b253",
+      "#8ac261",
+      "#88a3de",
+      "#7b9cd2",
+      "#5faba3",
+      "#bff6ff"
+    ],
+    "background": "#050607",
+    "foreground": "#d5e5e8",
+    "accent": "#6680ae",
+    "cursor": "#d5e5e8",
+    "selection": "#575c61"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

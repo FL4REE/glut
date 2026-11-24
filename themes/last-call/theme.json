@@ -1,0 +1,33 @@
+{
+  "name": "last-call",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#0b1d20",
+      "#ed634c",
+      "#58ad73",
+      "#b79a54",
+      "#668ca9",
+      "#9c8499",
+      "#00c6c2",
+      "#94b3b5",
+      "#42686f",
+      "#f47a64",
+      "#8fa99a",
+      "#b5b49b",
+      "#899fa4",
+      "#a4939e",
+      "#a9c2c1",
+      "#e0f5f2"
+    ],
+    "background": "#0b1d20",
+    "foreground": "#94b3b5",
+    "accent": "#00c6c2",
+    "cursor": "#e0f5f2",
+    "selection": "#42686f"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-yellow",
+  "source": "omarchy:https://github.com/OldJobobo/omarchy-last-call-theme"
+}

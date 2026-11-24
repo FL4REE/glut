@@ -1,0 +1,32 @@
+{
+  "name": "nebelgipfel",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#060805",
+      "#919a7f",
+      "#accdb3",
+      "#dafdd9",
+      "#618983",
+      "#83b7b9",
+      "#b3e8d0",
+      "#e8eaf2",
+      "#5b5f59",
+      "#a5b18e",
+      "#bbe6c5",
+      "#d5ffd3",
+      "#6fa199",
+      "#8cd0d3",
+      "#c0ffe5",
+      "#eef8f1"
+    ],
+    "background": "#060805",
+    "foreground": "#e8eaf2",
+    "accent": "#618983",
+    "cursor": "#e8eaf2",
+    "selection": "#5b5f59"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

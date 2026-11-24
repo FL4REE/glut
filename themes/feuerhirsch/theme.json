@@ -1,0 +1,32 @@
+{
+  "name": "feuerhirsch",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#150e20",
+      "#e26752",
+      "#ff9e72",
+      "#ffc29b",
+      "#8376cf",
+      "#a668b1",
+      "#8275cf",
+      "#fefec2",
+      "#6d6b72",
+      "#ff886c",
+      "#ffa059",
+      "#ffc884",
+      "#a996ff",
+      "#d186e3",
+      "#a895ff",
+      "#f1f38a"
+    ],
+    "background": "#150e20",
+    "foreground": "#fefec2",
+    "accent": "#8376cf",
+    "cursor": "#fefec2",
+    "selection": "#6d6b72"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "blackgold",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#0d0d0d",
+      "#d35f5f",
+      "#a3850e",
+      "#4d574e",
+      "#6e6a58",
+      "#bfa75d",
+      "#7a6a2c",
+      "#f6f1dd",
+      "#303531",
+      "#d35f5f",
+      "#a3850e",
+      "#4d574e",
+      "#6e6a58",
+      "#bfa75d",
+      "#7a6a2c",
+      "#f6f1dd"
+    ],
+    "background": "#0d0d0d",
+    "foreground": "#ebdbb2",
+    "accent": "#6e6a58",
+    "cursor": "#a3850e",
+    "selection": "#ebdbb2"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-yellow",
+  "source": "omarchy:https://github.com/HANCORE-linux/omarchy-blackgold-theme"
+}

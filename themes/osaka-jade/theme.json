@@ -1,0 +1,33 @@
+{
+  "name": "osaka-jade",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#23372b",
+      "#ff5345",
+      "#549e6a",
+      "#459451",
+      "#509475",
+      "#d2689c",
+      "#2dd5b7",
+      "#f6f5dd",
+      "#53685b",
+      "#db9f9c",
+      "#63b07a",
+      "#e5c736",
+      "#acd4cf",
+      "#75bbb3",
+      "#8cd3cb",
+      "#9eebb3"
+    ],
+    "background": "#111c18",
+    "foreground": "#c1c497",
+    "accent": "#71cead",
+    "cursor": "#d7c995",
+    "selection": "#53685b"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-sage",
+  "source": "omarchy:https://github.com/Justikun/omarchy-osaka-jade-theme"
+}

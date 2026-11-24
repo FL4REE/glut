@@ -1,0 +1,33 @@
+{
+  "name": "ibm",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#050709",
+      "#66a773",
+      "#d24646",
+      "#b4b47b",
+      "#727272",
+      "#8686ba",
+      "#a360a3",
+      "#993426",
+      "#4a4a4a",
+      "#a3cfa8",
+      "#e99999",
+      "#dadaba",
+      "#adadad",
+      "#afafd2",
+      "#c296c2",
+      "#ffffff"
+    ],
+    "background": "#050709",
+    "foreground": "#ffffff",
+    "accent": "#727272",
+    "cursor": "#cc4444",
+    "selection": "#727272"
+  },
+  "wallpaper": "wallpaper.png",
+  "icon_theme": "Adwaita",
+  "source": "omarchy:https://github.com/DimaZbr/omarchy-ibm-theme"
+}

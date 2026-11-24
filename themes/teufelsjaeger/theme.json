@@ -1,0 +1,32 @@
+{
+  "name": "teufelsjaeger",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#060700",
+      "#d05542",
+      "#98f081",
+      "#658b00",
+      "#ac52bd",
+      "#b657bd",
+      "#2ba04b",
+      "#e4f6e6",
+      "#696a64",
+      "#ff755b",
+      "#8aff43",
+      "#84b400",
+      "#d96df4",
+      "#e472f3",
+      "#46ca54",
+      "#cef9cf"
+    ],
+    "background": "#060700",
+    "foreground": "#e4f6e6",
+    "accent": "#ac52bd",
+    "cursor": "#e4f6e6",
+    "selection": "#696a64"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

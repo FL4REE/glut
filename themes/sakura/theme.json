@@ -1,0 +1,33 @@
+{
+  "name": "sakura",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#0d0509",
+      "#e85f6f",
+      "#f29b9a",
+      "#d4a882",
+      "#d9a56c",
+      "#d1b399",
+      "#e8c099",
+      "#f0eaed",
+      "#7a5c66",
+      "#ff7a8a",
+      "#ffb5b4",
+      "#e6ba94",
+      "#ebb97e",
+      "#e3c5ab",
+      "#fbd2ab",
+      "#f0eaed"
+    ],
+    "background": "#0d0509",
+    "foreground": "#f0eaed",
+    "accent": "#d9a56c",
+    "cursor": "#f0eaed",
+    "selection": "#7a5c66"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-red",
+  "source": "omarchy:https://github.com/bjarneo/omarchy-sakura-theme"
+}

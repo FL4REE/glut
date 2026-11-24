@@ -1,0 +1,32 @@
+{
+  "name": "lichtlinien",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#000000",
+      "#958ea6",
+      "#a5c5d8",
+      "#cbf6ff",
+      "#737d96",
+      "#a4a6c7",
+      "#bbdbfb",
+      "#c8c9c2",
+      "#686163",
+      "#aca3c1",
+      "#b3ddf6",
+      "#c5fbff",
+      "#8592b0",
+      "#b9bbe5",
+      "#cbf2ff",
+      "#f1f5ff"
+    ],
+    "background": "#000000",
+    "foreground": "#c8c9c2",
+    "accent": "#737d96",
+    "cursor": "#c8c9c2",
+    "selection": "#686163"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

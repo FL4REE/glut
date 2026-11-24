@@ -1,0 +1,13 @@
+*.bak
+*~
+.DS_Store
+
+# Per-Maschine generierter Zustand, nicht portabel zwischen Rechnern
+config/hypr/dms/outputs.lua
+config/fish/fish_variables
+config/dms/settings.json.bak-*
+
+# Plugins installiert install.sh aus ihren Quellen; ts-* erzeugt themectl
+config/dms/plugins/
+config/dms/themes/ts-*/
+themes/*/wallpaper.*

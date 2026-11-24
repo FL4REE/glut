@@ -1,0 +1,32 @@
+{
+  "name": "sonnensystem",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#080706",
+      "#bb8b58",
+      "#d9c26c",
+      "#ffed86",
+      "#b46956",
+      "#e89564",
+      "#e1e26c",
+      "#b9a57b",
+      "#615d57",
+      "#da9d5c",
+      "#f7d862",
+      "#ffeb62",
+      "#d47861",
+      "#ffa362",
+      "#fbfa62",
+      "#fbf4ea"
+    ],
+    "background": "#080706",
+    "foreground": "#b9a57b",
+    "accent": "#b46956",
+    "cursor": "#b9a57b",
+    "selection": "#615d57"
+  },
+  "wallpaper": "wallpaper.png",
+  "source": "manuell"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "lavender",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#11111b",
+      "#f38ba8",
+      "#a6e3a1",
+      "#f9e2af",
+      "#89b4fa",
+      "#cba6f7",
+      "#94e2d5",
+      "#cdd6f4",
+      "#585b70",
+      "#f38ba8",
+      "#a6e3a1",
+      "#fab387",
+      "#89b4fa",
+      "#cba6f7",
+      "#89dceb",
+      "#cdd6f4"
+    ],
+    "background": "#11111b",
+    "foreground": "#cdd6f4",
+    "accent": "#cba6f7",
+    "cursor": "#cdd6f4",
+    "selection": "#585b70"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Papirus-Dark",
+  "source": "omarchy:https://github.com/hembramnishant50-glitch/omarchy-lavender-theme"
+}

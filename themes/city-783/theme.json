@@ -1,0 +1,33 @@
+{
+  "name": "city-783",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#181a1f",
+      "#e53939",
+      "#dce0e6",
+      "#9e1a1a",
+      "#ad2222",
+      "#c3c8d0",
+      "#8f949c",
+      "#b9bec6",
+      "#4b515b",
+      "#ff5c5c",
+      "#eceff2",
+      "#f04a4a",
+      "#dce0e6",
+      "#f5f7f9",
+      "#aab0b9",
+      "#eceff2"
+    ],
+    "background": "#181a1f",
+    "foreground": "#b9bec6",
+    "accent": "#ad2222",
+    "cursor": "#eceff2",
+    "selection": "#2b2f37"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-red",
+  "source": "omarchy:https://github.com/OldJobobo/omarchy-city-783-theme"
+}

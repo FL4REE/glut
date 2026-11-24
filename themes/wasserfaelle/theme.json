@@ -1,0 +1,32 @@
+{
+  "name": "wasserfaelle",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#010a08",
+      "#9c9a56",
+      "#a3d38b",
+      "#d8ffa3",
+      "#369375",
+      "#c8a949",
+      "#93f4a8",
+      "#e2ddbb",
+      "#58605e",
+      "#b3b059",
+      "#b0ee8f",
+      "#d2ff8d",
+      "#33ac87",
+      "#e6be38",
+      "#96ffb2",
+      "#f1f8ed"
+    ],
+    "background": "#010a08",
+    "foreground": "#e2ddbb",
+    "accent": "#369375",
+    "cursor": "#e2ddbb",
+    "selection": "#58605e"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

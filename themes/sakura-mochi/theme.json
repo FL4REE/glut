@@ -1,0 +1,33 @@
+{
+  "name": "sakura-mochi",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#0b0d11",
+      "#f23888",
+      "#5aa15d",
+      "#d7be96",
+      "#67dd82",
+      "#f0b7ca",
+      "#6f9485",
+      "#f0b7ca",
+      "#678270",
+      "#ff6aa7",
+      "#86bf86",
+      "#e6d3b4",
+      "#8bf0a1",
+      "#ffd0dc",
+      "#8bb0a4",
+      "#fff1f6"
+    ],
+    "background": "#0b0d11",
+    "foreground": "#f0b7ca",
+    "accent": "#f23888",
+    "cursor": "#f23888",
+    "selection": "#f23888"
+  },
+  "wallpaper": "wallpaper.png",
+  "icon_theme": "Yaru-magenta",
+  "source": "omarchy:https://github.com/OldJobobo/omarchy-sakura-mochi-theme"
+}

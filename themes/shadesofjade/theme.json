@@ -1,0 +1,33 @@
+{
+  "name": "shadesofjade",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#00110b",
+      "#ff3370",
+      "#00a86b",
+      "#d1ffb0",
+      "#ff6600",
+      "#8fc85c",
+      "#80d4b5",
+      "#fff7f2",
+      "#3e6650",
+      "#ff3370",
+      "#00a86b",
+      "#d1ffb0",
+      "#ff6600",
+      "#8fc85c",
+      "#80d4b5",
+      "#e6f6f0"
+    ],
+    "background": "#00110b",
+    "foreground": "#e6f6f0",
+    "accent": "#d1ffb0",
+    "cursor": "#e25f4b",
+    "selection": "#e25f4b"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru",
+  "source": "omarchy:https://github.com/HANCORE-linux/omarchy-shadesofjade-theme"
+}

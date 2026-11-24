@@ -1,0 +1,32 @@
+{
+  "name": "schwarzes-loch",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#050411",
+      "#c1bdf0",
+      "#e3dcff",
+      "#e6dfff",
+      "#e0e1ff",
+      "#eaddff",
+      "#e7dfff",
+      "#e9dbd3",
+      "#68686e",
+      "#cfc3ff",
+      "#efdfff",
+      "#f0e0ff",
+      "#e5e4ff",
+      "#f7ddff",
+      "#f1dfff",
+      "#ffe2c6"
+    ],
+    "background": "#050411",
+    "foreground": "#e9dbd3",
+    "accent": "#e0e1ff",
+    "cursor": "#e9dbd3",
+    "selection": "#68686e"
+  },
+  "wallpaper": "wallpaper.png",
+  "source": "manuell"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Blackhole",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#000000",
+      "#a88d70",
+      "#cbc091",
+      "#ffedb5",
+      "#9c7264",
+      "#cd9d80",
+      "#d8dd9e",
+      "#f6f5ee",
+      "#686163",
+      "#c3a27d",
+      "#e5d799",
+      "#fff0a9",
+      "#b88473",
+      "#ecb08a",
+      "#f0f5a7",
+      "#faf4ea"
+    ],
+    "background": "#000000",
+    "foreground": "#f6f5ee",
+    "accent": "#9c7264",
+    "cursor": "#f6f5ee",
+    "selection": "#f6f5ee"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "aether-blueprint:Blackhole.json"
+}

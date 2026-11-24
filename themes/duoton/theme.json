@@ -1,0 +1,32 @@
+{
+  "name": "duoton",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#020407",
+      "#f95a5e",
+      "#2b79c7",
+      "#ff777b",
+      "#5d76da",
+      "#ae5cb3",
+      "#5197f0",
+      "#ffbbb8",
+      "#61656a",
+      "#ff797c",
+      "#4d9bff",
+      "#ff9599",
+      "#7f96ff",
+      "#db79e7",
+      "#72baff",
+      "#ffbcb8"
+    ],
+    "background": "#020407",
+    "foreground": "#ffbbb8",
+    "accent": "#5d76da",
+    "cursor": "#ffbbb8",
+    "selection": "#61656a"
+  },
+  "wallpaper": "wallpaper.png",
+  "source": "manuell"
+}

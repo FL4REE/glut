@@ -1,0 +1,33 @@
+{
+  "name": "blackturq",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#0a0a0a",
+      "#d35f5f",
+      "#8fecd5",
+      "#a9d1d7",
+      "#adf0e9",
+      "#485362",
+      "#5a676b",
+      "#c4d8e2",
+      "#322f3b",
+      "#d35f5f",
+      "#8fecd5",
+      "#a9d1d7",
+      "#adf0e9",
+      "#485362",
+      "#5a676b",
+      "#d2d9db"
+    ],
+    "background": "#0a0a0a",
+    "foreground": "#c8dcdc",
+    "accent": "#adf0e9",
+    "cursor": "#75dddd",
+    "selection": "#c8dcdc"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-sage",
+  "source": "omarchy:https://github.com/HANCORE-linux/omarchy-blackturq-theme"
+}

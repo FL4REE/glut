@@ -1,0 +1,33 @@
+{
+  "name": "spectra",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#2b2d31",
+      "#ef5d67",
+      "#8edb73",
+      "#f7c553",
+      "#7ca5ff",
+      "#e29ef3",
+      "#7dd8d3",
+      "#f8f8fa",
+      "#505258",
+      "#ff7680",
+      "#a2ee8b",
+      "#ffd86f",
+      "#97b6ff",
+      "#efb5f9",
+      "#94e8e3",
+      "#ffffff"
+    ],
+    "background": "#1a1b1e",
+    "foreground": "#eaeaef",
+    "accent": "#ffffff",
+    "cursor": "#f2a0a0",
+    "selection": "#b2c3ff"
+  },
+  "wallpaper": "wallpaper.png",
+  "icon_theme": "Yaru-sage",
+  "source": "omarchy:https://github.com/abhijeet-swami/omarchy-spectra-theme"
+}

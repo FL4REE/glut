@@ -1,0 +1,32 @@
+{
+  "name": "fahrradtour",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#020418",
+      "#d07f5c",
+      "#8ac37f",
+      "#9fd268",
+      "#5a75d1",
+      "#5779c4",
+      "#438e4d",
+      "#ffffff",
+      "#67696f",
+      "#fea274",
+      "#a2e58b",
+      "#9fe60f",
+      "#7c95ff",
+      "#789bfb",
+      "#5fb75e",
+      "#f5ebce"
+    ],
+    "background": "#020418",
+    "foreground": "#ffffff",
+    "accent": "#5a75d1",
+    "cursor": "#ffffff",
+    "selection": "#67696f"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

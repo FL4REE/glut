@@ -1,0 +1,33 @@
+{
+  "name": "zonda-zoom",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#141313",
+      "#a0afe3",
+      "#bcd2ff",
+      "#cde3ff",
+      "#6b7fbe",
+      "#757fbb",
+      "#637eb5",
+      "#f6f4ec",
+      "#a39c9c",
+      "#bdccff",
+      "#bedcff",
+      "#c7edff",
+      "#8ea1f2",
+      "#99a1ee",
+      "#85a1e7",
+      "#f6f4ec"
+    ],
+    "background": "#141313",
+    "foreground": "#f6f4ec",
+    "accent": "#6b7fbe",
+    "cursor": "#f6f4ec",
+    "selection": "#a39c9c"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-blue",
+  "source": "omarchy:https://github.com/dhh/omarchy-zonda-zoom-theme"
+}

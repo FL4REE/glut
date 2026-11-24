@@ -1,0 +1,32 @@
+{
+  "name": "Cubes",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#0e0505",
+      "#c78078",
+      "#fab07c",
+      "#ffd7a4",
+      "#af6682",
+      "#ed8b99",
+      "#ffc96c",
+      "#ffccc4",
+      "#635c5b",
+      "#e99085",
+      "#ffc07b",
+      "#ffcf8f",
+      "#cf7498",
+      "#ff96aa",
+      "#ffdb61",
+      "#fff2f0"
+    ],
+    "background": "#0e0505",
+    "foreground": "#ffccc4",
+    "accent": "#af6682",
+    "cursor": "#ffccc4",
+    "selection": "#ffccc4"
+  },
+  "wallpaper": "wallpaper.png",
+  "source": "aether-blueprint:Cubes.json"
+}

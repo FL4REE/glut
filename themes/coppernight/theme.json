@@ -1,0 +1,33 @@
+{
+  "name": "coppernight",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#11111b",
+      "#ed8796",
+      "#a6da95",
+      "#eed49f",
+      "#8aadf4",
+      "#c6a0f6",
+      "#8bd5ca",
+      "#cad3f5",
+      "#5b6078",
+      "#ed8796",
+      "#a6da95",
+      "#fab387",
+      "#8aadf4",
+      "#c6a0f6",
+      "#8bd5ca",
+      "#cad3f5"
+    ],
+    "background": "#11111b",
+    "foreground": "#cad3f5",
+    "accent": "#fab387",
+    "cursor": "#ed8796",
+    "selection": "#5b6078"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Papirus-Dark",
+  "source": "omarchy:https://github.com/hembramnishant50-glitch/omarchy-coppernight-theme"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "forest-night",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#1a2125",
+      "#e91e63",
+      "#8fbc8f",
+      "#f39c12",
+      "#4ecdc4",
+      "#9b59b6",
+      "#4ecdc4",
+      "#c9d1d9",
+      "#4a5568",
+      "#c78a7a",
+      "#8fbc8f",
+      "#ffb74d",
+      "#66d9ef",
+      "#9b59b6",
+      "#66d9ef",
+      "#c9d1d9"
+    ],
+    "background": "#1a2125",
+    "foreground": "#c9d1d9",
+    "accent": "#8fbc8f",
+    "cursor": "#c9d1d9",
+    "selection": "#4a5568"
+  },
+  "wallpaper": "wallpaper.webp",
+  "icon_theme": "Yaru-sage",
+  "source": "omarchy:https://github.com/ForrestKnight/omarchy-forest-night-theme"
+}

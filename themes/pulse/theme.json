@@ -1,0 +1,33 @@
+{
+  "name": "pulse",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#0d1220",
+      "#ff4d6a",
+      "#6ff0a8",
+      "#ffbd4a",
+      "#4d8dff",
+      "#ff3fb4",
+      "#39e1ff",
+      "#c9d6f2",
+      "#4b5a78",
+      "#ff7088",
+      "#9af7c3",
+      "#ffd27a",
+      "#7aaaff",
+      "#ff74c9",
+      "#7aeaff",
+      "#eef3ff"
+    ],
+    "background": "#070a12",
+    "foreground": "#c9d6f2",
+    "accent": "#39e1ff",
+    "cursor": "#39e1ff",
+    "selection": "#39e1ff"
+  },
+  "wallpaper": "wallpaper.png",
+  "icon_theme": "Yaru-blue",
+  "source": "omarchy:https://github.com/piermark/omarchy-pulse-theme"
+}

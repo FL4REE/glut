@@ -1,0 +1,32 @@
+{
+  "name": "totholz",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#0d1115",
+      "#ac909b",
+      "#e1bbba",
+      "#ffe8eb",
+      "#8f7c92",
+      "#c4a4bb",
+      "#e4d5fd",
+      "#f1edf0",
+      "#666b70",
+      "#c6a4b1",
+      "#ffcfcd",
+      "#ffe1e5",
+      "#a68fab",
+      "#dfb7d4",
+      "#fae8ff",
+      "#fdf1f8"
+    ],
+    "background": "#0d1115",
+    "foreground": "#f1edf0",
+    "accent": "#8f7c92",
+    "cursor": "#f1edf0",
+    "selection": "#666b70"
+  },
+  "wallpaper": "wallpaper.png",
+  "source": "manuell"
+}

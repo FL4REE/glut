@@ -1,0 +1,32 @@
+{
+  "name": "eva-finale",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#110d0a",
+      "#c1875f",
+      "#e5bd6c",
+      "#ffe689",
+      "#b46763",
+      "#ec9172",
+      "#f3da64",
+      "#fdec75",
+      "#6b6661",
+      "#e19865",
+      "#ffd162",
+      "#ffe268",
+      "#d57671",
+      "#ff9e77",
+      "#fff156",
+      "#fdf3eb"
+    ],
+    "background": "#110d0a",
+    "foreground": "#fdec75",
+    "accent": "#b46763",
+    "cursor": "#fdec75",
+    "selection": "#6b6661"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

@@ -1,0 +1,100 @@
+#!/usr/bin/env bash
+# confsync: spiegelt die Live-Configs dieses Rechners ins Repo, damit das Repo
+# immer dem tatsaechlichen Desktop entspricht.
+#
+# Welche Pfade gespiegelt werden, steht in config/manifest.txt, Ausnahmen in
+# config/exclude.txt. Vor jedem Commit wird nach Geheimnissen (API-Keys,
+# Tokens) gesucht; bei einem Treffer wird nichts committet.
+#
+# Aufruf:
+#   confsync                 Unterschiede anzeigen (aendert nichts)
+#   confsync update          Repo aktualisieren
+#   confsync update --commit [--push] [--notify]
+
+set -euo pipefail
+
+REPO_DIR="${CONFSYNC_REPO:-$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")/.." && pwd)}"
+MANIFEST="$REPO_DIR/config/manifest.txt"
+EXCLUDE="$REPO_DIR/config/exclude.txt"
+
+do_commit=0 do_push=0 do_notify=0 cmd=status
+for arg in "$@"; do
+  case "$arg" in
+    status|update) cmd=$arg ;;
+    --commit) do_commit=1 ;;
+    --push) do_push=1 do_commit=1 ;;
+    --notify) do_notify=1 ;;
+    -h|--help|help) sed -n '2,/^$/s/^# \{0,1\}//p' "$0"; exit 0 ;;
+    *) echo "Unbekanntes Argument: $arg" >&2; exit 2 ;;
+  esac
+done
+
+notify() {
+  (( do_notify )) && command -v notify-send >/dev/null && notify-send -a confsync "Configs" "$1"
+  return 0
+}
+
+mapfile -t entries < <(sed 's/#.*//' "$MANIFEST" | awk 'NF == 2')
+repo_paths=()
+changed=0
+
+for line in "${entries[@]}"; do
+  read -r live dest <<<"$line"
+  src="$HOME/$live"
+  dst="$REPO_DIR/$dest"
+  repo_paths+=("$dest")
+  [[ -e $src ]] || { echo "fehlt live: ~/$live (uebersprungen)"; continue; }
+
+  # Eintraege, die schon ins Repo zeigen (Symlink), brauchen keinen Abgleich
+  [[ $(readlink -f "$src") == "$REPO_DIR"/* ]] && continue
+
+  opts=(-a --copy-links --delete --exclude-from="$EXCLUDE" --out-format='%n')
+  if [[ -d $src ]]; then
+    src="$src/"
+    mkdir -p "$dst"
+    dst="$dst/"
+  else
+    mkdir -p "$(dirname "$dst")"
+  fi
+  [[ $cmd == status ]] && opts+=(--dry-run)
+
+  out=$(rsync "${opts[@]}" "$src" "$dst" | grep -v '/$' || true)
+  if [[ -n $out ]]; then
+    changed=1
+    printf '%s:\n%s\n' "$dest" "$(sed 's/^/  /' <<<"$out")"
+  fi
+done
+
+(( changed )) || echo "Configs sind aktuell."
+[[ $cmd == update ]] || exit 0
+(( do_commit )) || exit 0
+
+cd "$REPO_DIR"
+git_dir=$(git rev-parse --git-dir)
+if [[ -e "$git_dir/MERGE_HEAD" || -d "$git_dir/rebase-merge" || -d "$git_dir/rebase-apply" ]]; then
+  notify "Configs aktualisiert, aber nicht committet (Merge/Rebase laeuft)."
+  exit 0
+fi
+
+git add -A -- "${repo_paths[@]}"
+git diff --cached --quiet -- "${repo_paths[@]}" && exit 0
+
+# Geheimnis-Sperre: verdaechtige Zeilen in den neuen Aenderungen
+secret_re='(sk-ant-[A-Za-z0-9_-]{10,}|gh[pousr]_[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|-----BEGIN [A-Z ]*PRIVATE KEY|(api[_-]?key|apikey|token|secret|passw(or)?d)["'"'"']?[[:space:]]*[:=][[:space:]]*["'"'"'][A-Za-z0-9_./+=-]{16,})'
+if hits=$(git diff --cached -U0 -- "${repo_paths[@]}" | grep -E '^\+' | grep -iE "$secret_re"); then
+  git reset -q -- "${repo_paths[@]}"
+  echo "Moegliches Geheimnis gefunden, nichts committet:" >&2
+  sed 's/^/  /' <<<"$hits" | cut -c1-120 >&2
+  notify "Moegliches Geheimnis in den Configs gefunden, nichts committet. confsync im Terminal pruefen."
+  exit 1
+fi
+
+n=$(git diff --cached --name-only -- "${repo_paths[@]}" | wc -l)
+git commit -q -m "Configs aktualisiert (confsync): $n Dateien" -- "${repo_paths[@]}"
+echo "Committet ($n Dateien)."
+msg="$n Config-Dateien committet."
+if (( do_push )); then
+  if git pull -q --rebase --autostash 2>/dev/null && git push -q 2>/dev/null; then msg="$n Config-Dateien committet und gepusht."
+  else msg="$n Config-Dateien committet, Push fehlgeschlagen."; fi
+fi
+notify "$msg"

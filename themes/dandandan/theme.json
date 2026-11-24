@@ -1,0 +1,32 @@
+{
+  "name": "Dandandan",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#070705",
+      "#c47e70",
+      "#f4ae75",
+      "#ffd69b",
+      "#ad637a",
+      "#ea888f",
+      "#ffc864",
+      "#f09960",
+      "#5d5d57",
+      "#e58e7d",
+      "#ffbf72",
+      "#ffd286",
+      "#cd718e",
+      "#ff949e",
+      "#ffdb58",
+      "#fff2ef"
+    ],
+    "background": "#070705",
+    "foreground": "#f09960",
+    "accent": "#ad637a",
+    "cursor": "#f09960",
+    "selection": "#f09960"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "aether-blueprint:Dandandan.json"
+}

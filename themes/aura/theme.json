@@ -1,0 +1,33 @@
+{
+  "name": "aura",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#282a36",
+      "#ffafcc",
+      "#8be9fd",
+      "#cbc3e3",
+      "#8be9fd",
+      "#ffc8dd",
+      "#8be9fd",
+      "#f8f8f2",
+      "#44475a",
+      "#ffafcc",
+      "#bde0fe",
+      "#cbc3e3",
+      "#bde0fe",
+      "#ffc8dd",
+      "#bde0fe",
+      "#f8f8f2"
+    ],
+    "background": "#282a36",
+    "foreground": "#f8f8f2",
+    "accent": "#8be9fd",
+    "cursor": "#f8f8f2",
+    "selection": "#44475a"
+  },
+  "wallpaper": "wallpaper.png",
+  "icon_theme": "Yaru-magenta",
+  "source": "omarchy:https://github.com/bjarneo/omarchy-aura-theme"
+}

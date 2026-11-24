@@ -1,0 +1,32 @@
+{
+  "name": "elektroschrott",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#111015",
+      "#9d8ecb",
+      "#75d3ff",
+      "#88ffff",
+      "#6482bf",
+      "#9fa7fa",
+      "#89e6ff",
+      "#67e1fe",
+      "#6b6a70",
+      "#b4a0ed",
+      "#6cedff",
+      "#56ffff",
+      "#7297e2",
+      "#b1baff",
+      "#86fcff",
+      "#f0f5ff"
+    ],
+    "background": "#111015",
+    "foreground": "#67e1fe",
+    "accent": "#6482bf",
+    "cursor": "#67e1fe",
+    "selection": "#6b6a70"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

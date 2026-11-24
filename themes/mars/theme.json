@@ -1,0 +1,33 @@
+{
+  "name": "mars",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#000000",
+      "#e07b5f",
+      "#7b534e",
+      "#c45a3f",
+      "#7b534e",
+      "#a0392f",
+      "#7b534e",
+      "#d9afa7",
+      "#4a2c2c",
+      "#ff6b4a",
+      "#7b534e",
+      "#e07b5f",
+      "#7b534e",
+      "#c45a3f",
+      "#7b534e",
+      "#d9afa7"
+    ],
+    "background": "#000000",
+    "foreground": "#d9afa7",
+    "accent": "#c45a3f",
+    "cursor": "#ff6b4a",
+    "selection": "#4a2c2c"
+  },
+  "wallpaper": "wallpaper.png",
+  "icon_theme": "Yaru-dark",
+  "source": "omarchy:https://github.com/steve-lohmeyer/omarchy-mars-theme"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "blutrot",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#000000",
+      "#c47c7c",
+      "#faaa81",
+      "#ffd1ab",
+      "#a96487",
+      "#e788a1",
+      "#ffc170",
+      "#c1c1c1",
+      "#686163",
+      "#e58b8c",
+      "#ffb982",
+      "#ffcb9c",
+      "#c7729f",
+      "#ff93b5",
+      "#ffd269",
+      "#fff1f2"
+    ],
+    "background": "#000000",
+    "foreground": "#c1c1c1",
+    "accent": "#a96487",
+    "cursor": "#c1c1c1",
+    "selection": "#686163"
+  },
+  "wallpaper": "wallpaper.png",
+  "source": "manuell"
+}

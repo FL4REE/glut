@@ -1,0 +1,33 @@
+{
+  "name": "hermarchy",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#08090a",
+      "#e46e6e",
+      "#86d993",
+      "#e2c275",
+      "#74a8c7",
+      "#b7a1c7",
+      "#61d6ff",
+      "#d5d5d0",
+      "#606468",
+      "#f08a8a",
+      "#a5e4ae",
+      "#ecd69a",
+      "#94bcd2",
+      "#cebdda",
+      "#8de4ff",
+      "#f1f1ec"
+    ],
+    "background": "#08090a",
+    "foreground": "#f1f1ec",
+    "accent": "#61d6ff",
+    "cursor": "#8de4ff",
+    "selection": "#26333a"
+  },
+  "wallpaper": "wallpaper.png",
+  "icon_theme": "Yaru-blue",
+  "source": "omarchy:https://github.com/archer-clawbot/omarchy-hermarchy-theme"
+}

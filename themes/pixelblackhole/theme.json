@@ -1,0 +1,32 @@
+{
+  "name": "PixelBlackhole",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#07070b",
+      "#a8936f",
+      "#c6c794",
+      "#fcf4b6",
+      "#6c8a67",
+      "#cda37b",
+      "#cfe4a5",
+      "#eeebe1",
+      "#5d5d63",
+      "#c2a77a",
+      "#dedf9c",
+      "#fff5a6",
+      "#7ca176",
+      "#ecb682",
+      "#e4fdae",
+      "#f7f5ea"
+    ],
+    "background": "#07070b",
+    "foreground": "#eeebe1",
+    "accent": "#6c8a67",
+    "cursor": "#eeebe1",
+    "selection": "#eeebe1"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "aether-blueprint:PixelBlackhole.json"
+}

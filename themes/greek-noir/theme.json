@@ -1,0 +1,33 @@
+{
+  "name": "greek-noir",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#171717",
+      "#aeab94",
+      "#f25623",
+      "#757864",
+      "#88a57d",
+      "#f56e0f",
+      "#7b837b",
+      "#a6ada6",
+      "#525252",
+      "#aeab94",
+      "#f25623",
+      "#757864",
+      "#88a57d",
+      "#f56e0f",
+      "#7b837b",
+      "#bcbfbc"
+    ],
+    "background": "#171717",
+    "foreground": "#ccd0cf",
+    "accent": "#f25623",
+    "cursor": "#aeab94",
+    "selection": "#f56e0f"
+  },
+  "wallpaper": "wallpaper.png",
+  "icon_theme": "Yaru-sage",
+  "source": "omarchy:https://github.com/HANCORE-linux/omarchy-greek-noir-theme"
+}

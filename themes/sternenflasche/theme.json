@@ -1,0 +1,32 @@
+{
+  "name": "sternenflasche",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#07021e",
+      "#ad80b4",
+      "#93c2ff",
+      "#ffcbff",
+      "#7d72b4",
+      "#bc95e5",
+      "#b7d0ff",
+      "#f0d7e9",
+      "#5d5d63",
+      "#c991d1",
+      "#9cd8ff",
+      "#ffc5ff",
+      "#9284d6",
+      "#d7a4ff",
+      "#c7e5ff",
+      "#f6f3fe"
+    ],
+    "background": "#07021e",
+    "foreground": "#f0d7e9",
+    "accent": "#7d72b4",
+    "cursor": "#f0d7e9",
+    "selection": "#5d5d63"
+  },
+  "wallpaper": "wallpaper.png",
+  "source": "manuell"
+}

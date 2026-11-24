@@ -1,0 +1,32 @@
+{
+  "name": "regenmaschine",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#08060c",
+      "#a98a8c",
+      "#dcb6a9",
+      "#ffe2d7",
+      "#907485",
+      "#c59caa",
+      "#ebcaee",
+      "#fff7eb",
+      "#5e5c62",
+      "#c49da0",
+      "#facab8",
+      "#ffe2d4",
+      "#a9869c",
+      "#e2aec0",
+      "#ffdeff",
+      "#fff1f3"
+    ],
+    "background": "#08060c",
+    "foreground": "#fff7eb",
+    "accent": "#907485",
+    "cursor": "#fff7eb",
+    "selection": "#5e5c62"
+  },
+  "wallpaper": "wallpaper.png",
+  "source": "manuell"
+}

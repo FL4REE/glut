@@ -1,0 +1,32 @@
+{
+  "name": "seerosenteich",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#000d07",
+      "#8f9e5d",
+      "#91d79a",
+      "#c2ffb4",
+      "#239383",
+      "#28c3c4",
+      "#79f7bd",
+      "#f2fad4",
+      "#5c635f",
+      "#a3b663",
+      "#97f3a3",
+      "#b5ffa4",
+      "#0bad98",
+      "#00dfe1",
+      "#70ffcd",
+      "#eef8f0"
+    ],
+    "background": "#000d07",
+    "foreground": "#f2fad4",
+    "accent": "#239383",
+    "cursor": "#f2fad4",
+    "selection": "#5c635f"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

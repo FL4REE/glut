@@ -1,0 +1,32 @@
+{
+  "name": "goldfischglas",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#000104",
+      "#9987c3",
+      "#72cbfc",
+      "#84ffff",
+      "#627bb9",
+      "#9d9ff2",
+      "#88deff",
+      "#a2bfef",
+      "#575a60",
+      "#b199e5",
+      "#6ae5ff",
+      "#5dffff",
+      "#708fdc",
+      "#b0b2ff",
+      "#8af6ff",
+      "#f0f5ff"
+    ],
+    "background": "#000104",
+    "foreground": "#a2bfef",
+    "accent": "#627bb9",
+    "cursor": "#a2bfef",
+    "selection": "#575a60"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

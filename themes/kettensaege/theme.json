@@ -1,0 +1,32 @@
+{
+  "name": "kettensaege",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#0d0111",
+      "#c94e3c",
+      "#0f9000",
+      "#7e7a3e",
+      "#a45ac7",
+      "#b657c1",
+      "#069f00",
+      "#e9d7b7",
+      "#6b676d",
+      "#fa6e56",
+      "#2fba00",
+      "#a2a04e",
+      "#d075ff",
+      "#e472f8",
+      "#2aca00",
+      "#ffe39f"
+    ],
+    "background": "#0d0111",
+    "foreground": "#e9d7b7",
+    "accent": "#a45ac7",
+    "cursor": "#e9d7b7",
+    "selection": "#6b676d"
+  },
+  "wallpaper": "wallpaper.png",
+  "source": "manuell"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "blumenkoenigin",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#000513",
+      "#e93f2a",
+      "#6f7e00",
+      "#9b9900",
+      "#4b70dc",
+      "#b157bb",
+      "#48837a",
+      "#f3e1e5",
+      "#64686e",
+      "#ff5f43",
+      "#90a500",
+      "#c0c100",
+      "#6c90ff",
+      "#de72f1",
+      "#66a99d",
+      "#ffdbe9"
+    ],
+    "background": "#000513",
+    "foreground": "#f3e1e5",
+    "accent": "#4b70dc",
+    "cursor": "#f3e1e5",
+    "selection": "#64686e"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

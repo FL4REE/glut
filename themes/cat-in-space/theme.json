@@ -1,0 +1,32 @@
+{
+  "name": "Cat in Space",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#070517",
+      "#968cc9",
+      "#6dd1fa",
+      "#7fffff",
+      "#5c80bc",
+      "#96a5f8",
+      "#7ee5ff",
+      "#e5e4b7",
+      "#5e5e64",
+      "#ac9fec",
+      "#60ebff",
+      "#4bffff",
+      "#6995df",
+      "#a7b9ff",
+      "#7afeff",
+      "#eff6ff"
+    ],
+    "background": "#070517",
+    "foreground": "#e5e4b7",
+    "accent": "#5c80bc",
+    "cursor": "#e5e4b7",
+    "selection": "#e5e4b7"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "aether-blueprint:Cat-in-Space.json"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "fussballTicker",
+  "name": "Fußball Ticker",
+  "description": "Live-Ticker für Hansa Rostock, BVB, Bundesliga und die deutsche Nationalmannschaft mit Live-Score in der Bar und Tor-Benachrichtigungen",
+  "version": "0.1.0",
+  "author": "Erik",
+  "icon": "sports_soccer",
+  "type": "composite",
+  "capabilities": ["daemon", "dankbar-widget"],
+  "components": {
+    "daemon": "./FussballTickerDaemon.qml",
+    "widget": "./FussballTickerWidget.qml"
+  },
+  "settings": "./FussballTickerSettings.qml",
+  "requires_dms": ">=1.5.0",
+  "permissions": ["settings_read", "settings_write", "process", "network"]
+}

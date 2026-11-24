@@ -1,0 +1,33 @@
+{
+  "name": "forest-green",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#1e2a24",
+      "#e06c75",
+      "#6bbf7a",
+      "#d7ba7d",
+      "#5fa9a8",
+      "#c678dd",
+      "#56b6c2",
+      "#e6e6d6",
+      "#3a4a3d",
+      "#f28b82",
+      "#98c379",
+      "#e5c07b",
+      "#89dce3",
+      "#d19a66",
+      "#8be9fd",
+      "#d0f0d7"
+    ],
+    "background": "#0f1a14",
+    "foreground": "#a8e6a1",
+    "accent": "#6bbf7a",
+    "cursor": "#cddc39",
+    "selection": "#6bbf7a"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-olive",
+  "source": "omarchy:https://github.com/abhijeet-swami/omarchy-forest-green-theme"
+}

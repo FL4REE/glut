@@ -1,0 +1,32 @@
+{
+  "name": "rosamond-felsen",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#000001",
+      "#a286b3",
+      "#93c5f7",
+      "#aff8ff",
+      "#7577ac",
+      "#af9cde",
+      "#b0d7ff",
+      "#b987b0",
+      "#5b5e64",
+      "#bc98d0",
+      "#9bdcff",
+      "#a1fdff",
+      "#888bcc",
+      "#c7aeff",
+      "#beedff",
+      "#f4f4ff"
+    ],
+    "background": "#000001",
+    "foreground": "#b987b0",
+    "accent": "#7577ac",
+    "cursor": "#b987b0",
+    "selection": "#5b5e64"
+  },
+  "wallpaper": "wallpaper.png",
+  "source": "manuell"
+}

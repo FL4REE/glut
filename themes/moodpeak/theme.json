@@ -1,0 +1,33 @@
+{
+  "name": "moodpeak",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#181c22",
+      "#ff7b92",
+      "#4ecdc4",
+      "#82eeff",
+      "#6a85ff",
+      "#b388eb",
+      "#c9aff0",
+      "#d1d7e0",
+      "#3d4455",
+      "#ff9ead",
+      "#82eeff",
+      "#b388eb",
+      "#96aaff",
+      "#d1b3ff",
+      "#a5f5ff",
+      "#efedf2"
+    ],
+    "background": "#181c22",
+    "foreground": "#e0e6ed",
+    "accent": "#4ecdc4",
+    "cursor": "#e6dbf5",
+    "selection": "#82eeff"
+  },
+  "wallpaper": "wallpaper.png",
+  "icon_theme": "Yaru-purple",
+  "source": "omarchy:https://github.com/HANCORE-linux/omarchy-moodpeak-theme"
+}

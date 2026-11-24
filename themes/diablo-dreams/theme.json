@@ -1,0 +1,33 @@
+{
+  "name": "diablo-dreams",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#100e0a",
+      "#b48a5c",
+      "#d2c074",
+      "#ffeb91",
+      "#ab6a57",
+      "#de9568",
+      "#dbde79",
+      "#fef2c9",
+      "#817a6b",
+      "#d19d62",
+      "#eed671",
+      "#ffed78",
+      "#ca7a63",
+      "#ffa56a",
+      "#f3f776",
+      "#fef2c9"
+    ],
+    "background": "#100e0a",
+    "foreground": "#fef2c9",
+    "accent": "#ab6a57",
+    "cursor": "#fef2c9",
+    "selection": "#817a6b"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-wartybrown",
+  "source": "omarchy:https://github.com/dhh/omarchy-diablo-dreams-theme"
+}

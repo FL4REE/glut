@@ -1,0 +1,32 @@
+{
+  "name": "Atmosphere",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#070709",
+      "#bd8a5a",
+      "#ddc06b",
+      "#ffeb86",
+      "#b4695a",
+      "#ea9368",
+      "#e7df69",
+      "#fceba2",
+      "#5d5d63",
+      "#dd9c5e",
+      "#fcd662",
+      "#ffe863",
+      "#d57766",
+      "#ffa169",
+      "#fff75d",
+      "#fbf4ea"
+    ],
+    "background": "#070709",
+    "foreground": "#fceba2",
+    "accent": "#b4695a",
+    "cursor": "#fceba2",
+    "selection": "#fceba2"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "aether-blueprint:Atmosphere.json"
+}

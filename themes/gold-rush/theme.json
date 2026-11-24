@@ -1,0 +1,33 @@
+{
+  "name": "gold-rush",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#76520e",
+      "#dbb42c",
+      "#a47e1b",
+      "#fad643",
+      "#926c15",
+      "#b69121",
+      "#805b10",
+      "#edc531",
+      "#805b10",
+      "#edc531",
+      "#b69121",
+      "#ffee69",
+      "#a47e1b",
+      "#c9a227",
+      "#dbb42c",
+      "#fad643"
+    ],
+    "background": "#121212",
+    "foreground": "#d9d9d9",
+    "accent": "#c9a227",
+    "cursor": "#c9a227",
+    "selection": "#926c15"
+  },
+  "wallpaper": "wallpaper.png",
+  "icon_theme": "Yaru-yellow",
+  "source": "omarchy:https://github.com/tahayvr/omarchy-gold-rush-theme"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "brandungspferd",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#02090a",
+      "#aa9176",
+      "#ccc498",
+      "#fff1bc",
+      "#9d7668",
+      "#cda286",
+      "#dae0a6",
+      "#feedc7",
+      "#575f60",
+      "#c4a583",
+      "#e6dba1",
+      "#fff1af",
+      "#b98878",
+      "#ecb590",
+      "#f1f8b0",
+      "#faf5ea"
+    ],
+    "background": "#02090a",
+    "foreground": "#feedc7",
+    "accent": "#9d7668",
+    "cursor": "#feedc7",
+    "selection": "#575f60"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

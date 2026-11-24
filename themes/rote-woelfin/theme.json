@@ -1,0 +1,32 @@
+{
+  "name": "rote-woelfin",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#11090a",
+      "#c77f7f",
+      "#fead84",
+      "#ffd4ae",
+      "#ac678a",
+      "#eb8ba4",
+      "#ffc473",
+      "#fcddd5",
+      "#696162",
+      "#e98e8f",
+      "#ffbc86",
+      "#ffcb9c",
+      "#cb75a2",
+      "#ff96b8",
+      "#ffd56d",
+      "#fff1f2"
+    ],
+    "background": "#11090a",
+    "foreground": "#fcddd5",
+    "accent": "#ac678a",
+    "cursor": "#fcddd5",
+    "selection": "#696162"
+  },
+  "wallpaper": "wallpaper.png",
+  "source": "manuell"
+}

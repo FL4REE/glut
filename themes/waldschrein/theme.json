@@ -1,0 +1,32 @@
+{
+  "name": "waldschrein",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#010400",
+      "#a9904f",
+      "#bac975",
+      "#f3f78c",
+      "#4e8e5d",
+      "#d79c4b",
+      "#b5ea86",
+      "#eff1ea",
+      "#60635d",
+      "#c4a550",
+      "#cfe271",
+      "#f8fb70",
+      "#57a76a",
+      "#f9ae3d",
+      "#c4ff87",
+      "#f5f6eb"
+    ],
+    "background": "#010400",
+    "foreground": "#eff1ea",
+    "accent": "#4e8e5d",
+    "cursor": "#eff1ea",
+    "selection": "#60635d"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

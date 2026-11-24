@@ -1,0 +1,32 @@
+{
+  "name": "kirschbluetenzug",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#0d0111",
+      "#c46261",
+      "#628400",
+      "#a9b24d",
+      "#7d9ff1",
+      "#a761a5",
+      "#8dbaff",
+      "#f6f5ff",
+      "#6b676d",
+      "#f38280",
+      "#81ac00",
+      "#cbd84a",
+      "#a0c2ff",
+      "#d37fd6",
+      "#8cc3ff",
+      "#ebe5ff"
+    ],
+    "background": "#0d0111",
+    "foreground": "#f6f5ff",
+    "accent": "#7d9ff1",
+    "cursor": "#f6f5ff",
+    "selection": "#6b676d"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "event-horizon",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#1c1e26",
+      "#e95678",
+      "#29d398",
+      "#fac29a",
+      "#26bbd9",
+      "#ee64ac",
+      "#59e1e3",
+      "#cbced0",
+      "#6f6f70",
+      "#ec6a88",
+      "#3fdaa4",
+      "#fbc3a7",
+      "#3fc4de",
+      "#f075b5",
+      "#6be4e6",
+      "#e3e6ee"
+    ],
+    "background": "#1c1e26",
+    "foreground": "#cbced0",
+    "accent": "#26bbd9",
+    "cursor": "#e3e6ee",
+    "selection": "#26bbd9"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-magenta",
+  "source": "omarchy:https://github.com/OldJobobo/omarchy-event-horizon-theme"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "koyanagi",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#1c1c1e",
+      "#f2f2f2",
+      "#f2f2f2",
+      "#ffdd80",
+      "#7a7a7a",
+      "#8a8a8a",
+      "#f2f2f2",
+      "#f2f2f2",
+      "#6a6a6a",
+      "#ffffff",
+      "#ffffff",
+      "#ffe9b3",
+      "#b8b8b8",
+      "#cccccc",
+      "#ffffff",
+      "#f2f2f2"
+    ],
+    "background": "#1c1c1e",
+    "foreground": "#f2f2f2",
+    "accent": "#ffdd80",
+    "cursor": "#f2f2f2",
+    "selection": "#6a6a6a"
+  },
+  "wallpaper": "wallpaper.jpeg",
+  "icon_theme": "Yaru-sage",
+  "source": "omarchy:https://github.com/YutaKoyanagi10/omarchy-koyanagi-theme"
+}

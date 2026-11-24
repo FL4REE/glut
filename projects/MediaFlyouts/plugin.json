@@ -1,0 +1,20 @@
+{
+  "id": "mediaFlyouts",
+  "name": "Media Flyouts",
+  "description": "Flyouts im FluentFlyout-Stil für Musik und Lock Keys, sichtbar auch über Vollbild-Apps",
+  "version": "0.1.0",
+  "author": "Erik",
+  "icon": "music_note",
+  "type": "daemon",
+  "capabilities": [
+    "background-service"
+  ],
+  "component": "./MediaFlyoutsDaemon.qml",
+  "requires_dms": ">=1.5.0",
+  "permissions": [
+    "settings_read",
+    "settings_write",
+    "process"
+  ],
+  "settings": "./MediaFlyoutsSettings.qml"
+}

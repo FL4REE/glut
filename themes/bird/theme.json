@@ -1,0 +1,32 @@
+{
+  "name": "Bird",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#000518",
+      "#fea295",
+      "#97763f",
+      "#c59e63",
+      "#6782af",
+      "#c48881",
+      "#7ea5d0",
+      "#dde3e8",
+      "#585c61",
+      "#ffa28f",
+      "#bf9b51",
+      "#efc475",
+      "#89a5df",
+      "#f0aba2",
+      "#a0caff",
+      "#d1efff"
+    ],
+    "background": "#000518",
+    "foreground": "#dde3e8",
+    "accent": "#6782af",
+    "cursor": "#dde3e8",
+    "selection": "#dde3e8"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "aether-blueprint:Bird.json"
+}

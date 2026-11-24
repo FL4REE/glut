@@ -1,0 +1,33 @@
+{
+  "name": "bauhaus",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#161b22",
+      "#cb886d",
+      "#789fa2",
+      "#e7a46f",
+      "#8999aa",
+      "#8d758f",
+      "#809d9e",
+      "#eaeff5",
+      "#3a3f4c",
+      "#e06c55",
+      "#7b9b9f",
+      "#e0a568",
+      "#6c7c82",
+      "#a3ada7",
+      "#7b9b9f",
+      "#ffffff"
+    ],
+    "background": "#101318",
+    "foreground": "#eaeff5",
+    "accent": "#e37b66",
+    "cursor": "#e37b66",
+    "selection": "#2b3040"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-blue-dark",
+  "source": "omarchy:https://github.com/mwaltzer/omarchy-bauhaus-theme"
+}

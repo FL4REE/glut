@@ -1,0 +1,32 @@
+{
+  "name": "synthwave84",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#262335",
+      "#ff0040",
+      "#8f00ff",
+      "#f3e70f",
+      "#0080ff",
+      "#ff00ff",
+      "#03edf9",
+      "#ffffff",
+      "#614d85",
+      "#fe5442",
+      "#fe5442",
+      "#ffff66",
+      "#0080ff",
+      "#ff7edb",
+      "#03edf9",
+      "#ffffff"
+    ],
+    "background": "#240037",
+    "foreground": "#ffffff",
+    "accent": "#8f00ff",
+    "cursor": "#ff00ff",
+    "selection": "#614d85"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "omarchy:https://github.com/omacom/omarchy-synthwave84-theme"
+}

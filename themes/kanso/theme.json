@@ -1,0 +1,33 @@
+{
+  "name": "kanso",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#090e13",
+      "#c4746e",
+      "#8a9a7b",
+      "#c4b28a",
+      "#8ba4b0",
+      "#a292a3",
+      "#8ea4a2",
+      "#c8c093",
+      "#393b44",
+      "#e46876",
+      "#87a987",
+      "#e6c384",
+      "#7fb4ca",
+      "#938aa9",
+      "#7aa89f",
+      "#a4a7a4"
+    ],
+    "background": "#090e13",
+    "foreground": "#c5c9c7",
+    "accent": "#8ba4b0",
+    "cursor": "#c5c9c7",
+    "selection": "#393b44"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-prussiangreen",
+  "source": "omarchy:https://github.com/HANCORE-linux/omarchy-kanso-theme"
+}

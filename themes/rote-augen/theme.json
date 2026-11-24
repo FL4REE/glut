@@ -1,0 +1,32 @@
+{
+  "name": "rote-augen",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#000000",
+      "#c47d74",
+      "#f6ad78",
+      "#ffd49f",
+      "#ac637e",
+      "#ea8895",
+      "#ffc667",
+      "#ffa1ca",
+      "#686163",
+      "#e58d81",
+      "#ffbd77",
+      "#ffd08d",
+      "#cc7194",
+      "#ff93a5",
+      "#ffd85c",
+      "#fff2f0"
+    ],
+    "background": "#000000",
+    "foreground": "#ffa1ca",
+    "accent": "#ac637e",
+    "cursor": "#ffa1ca",
+    "selection": "#686163"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

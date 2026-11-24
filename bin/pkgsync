@@ -1,0 +1,168 @@
+#!/usr/bin/env bash
+# pkgsync: haelt packages/pacman.txt, aur.txt und flatpak.txt mit dem
+# tatsaechlich installierten System synchron.
+#
+# - Neu installierte Pakete (explizit, nicht als Abhaengigkeit) werden unten
+#   unter einem "Neu erfasst"-Block angehaengt. Die vorhandene Gliederung mit
+#   Kommentar-Ueberschriften bleibt unangetastet; einsortieren geht von Hand.
+# - Pakete, die zwischen Repo und AUR gewechselt sind, werden in die richtige
+#   Datei verschoben.
+# - Gelistete, aber nicht installierte Pakete werden nur GEMELDET, nicht
+#   entfernt (z.B. starship liegt hier unter /usr/local/bin, soll auf dem
+#   Laptop aber per pacman kommen). Entfernen geht von Hand.
+# - packages/ignore.txt enthaelt Glob-Muster fuer Pakete, die nie in die Listen
+#   sollen (Treiber/Kernel macht chwd -a, Grundsystem bringt CachyOS mit).
+#
+# Aufruf:
+#   pkgsync                 Unterschiede anzeigen (aendert nichts)
+#   pkgsync update          Listen aktualisieren
+#   pkgsync update --commit [--push] [--notify]
+#                           ... und Aenderungen an packages/ committen (pushen)
+
+set -euo pipefail
+
+REPO_DIR="${PKGSYNC_REPO:-$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")/.." && pwd)}"
+PKG_DIR="$REPO_DIR/packages"
+PACMAN_TXT="$PKG_DIR/pacman.txt"
+AUR_TXT="$PKG_DIR/aur.txt"
+FLATPAK_TXT="$PKG_DIR/flatpak.txt"
+IGNORE_TXT="$PKG_DIR/ignore.txt"
+NEW_HEADER="# Neu erfasst (pkgsync) - bei Gelegenheit einsortieren"
+
+do_commit=0 do_push=0 do_notify=0 cmd=status
+
+usage() { sed -n '2,/^$/s/^# \{0,1\}//p' "$0"; }
+
+for arg in "$@"; do
+  case "$arg" in
+    status|update) cmd=$arg ;;
+    --commit) do_commit=1 ;;
+    --push) do_push=1 do_commit=1 ;;
+    --notify) do_notify=1 ;;
+    -h|--help|help) usage; exit 0 ;;
+    *) echo "Unbekanntes Argument: $arg" >&2; usage >&2; exit 2 ;;
+  esac
+done
+
+# Paketnamen einer Liste (ohne Kommentare/Leerzeilen), sortiert
+listed() {
+  [[ -f "$1" ]] || return 0
+  sed 's/#.*//; s/[[:space:]]//g' "$1" | grep -v '^$' | sort -u
+}
+
+# Filtert stdin gegen die Glob-Muster aus ignore.txt
+not_ignored() {
+  local -a pats=()
+  [[ -f "$IGNORE_TXT" ]] && mapfile -t pats < <(listed "$IGNORE_TXT")
+  local pkg pat
+  while IFS= read -r pkg; do
+    for pat in "${pats[@]}"; do
+      # shellcheck disable=SC2053  # Glob-Vergleich gewollt
+      [[ $pkg == $pat ]] && continue 2
+    done
+    printf '%s\n' "$pkg"
+  done
+}
+
+# Entfernt eine Paketzeile (exakter Name, Kommentar am Zeilenende erlaubt)
+remove_line() {
+  local file=$1 pkg=$2 tmp
+  tmp=$(mktemp)
+  awk -v p="$pkg" '{ l=$0; sub(/#.*/, "", l); gsub(/[ \t]/, "", l) } l != p' "$file" > "$tmp"
+  cat "$tmp" > "$file"
+  rm -f "$tmp"
+}
+
+# Haengt Pakete unter dem "Neu erfasst"-Block an
+append_new() {
+  local file=$1; shift
+  (( $# )) || return 0
+  touch "$file"
+  if ! grep -qxF "$NEW_HEADER" "$file"; then
+    [[ -s "$file" && -n "$(tail -c1 "$file")" ]] && echo >> "$file"
+    [[ -s "$file" ]] && echo >> "$file"
+    echo "$NEW_HEADER" >> "$file"
+  fi
+  printf '%s\n' "$@" >> "$file"
+}
+
+tmpd=$(mktemp -d)
+trap 'rm -rf "$tmpd"' EXIT
+
+pacman -Qqen | not_ignored | sort -u > "$tmpd/native"
+pacman -Qqem | not_ignored | sort -u > "$tmpd/foreign"
+pacman -Qq | sort -u > "$tmpd/installed"
+if command -v flatpak >/dev/null; then
+  flatpak list --app --columns=application 2>/dev/null | not_ignored | sort -u > "$tmpd/flatpak"
+else
+  : > "$tmpd/flatpak"
+fi
+listed "$PACMAN_TXT" > "$tmpd/l_pacman"
+listed "$AUR_TXT" > "$tmpd/l_aur"
+listed "$FLATPAK_TXT" > "$tmpd/l_flatpak"
+
+mapfile -t add_pacman  < <(comm -23 "$tmpd/native"  "$tmpd/l_pacman")
+mapfile -t add_aur     < <(comm -23 "$tmpd/foreign" "$tmpd/l_aur")
+mapfile -t add_flatpak < <(comm -23 "$tmpd/flatpak" "$tmpd/l_flatpak")
+# Repo <-> AUR gewechselt: aus der jeweils anderen Datei raus
+mapfile -t drop_aur    < <(comm -12 "$tmpd/native"  "$tmpd/l_aur")
+mapfile -t drop_pacman < <(comm -12 "$tmpd/foreign" "$tmpd/l_pacman")
+# Gelistet, aber gar nicht installiert (auch nicht als Abhaengigkeit oder
+# ueber ein anderes Paket, das den Namen bereitstellt, z.B. dms-shell-git)
+mapfile -t missing < <(
+  { comm -23 "$tmpd/l_pacman" "$tmpd/installed"
+    comm -23 "$tmpd/l_aur" "$tmpd/installed"; } | sort -u |
+    while IFS= read -r p; do pacman -Qq "$p" >/dev/null 2>&1 || printf '%s\n' "$p"; done
+  comm -23 "$tmpd/l_flatpak" "$tmpd/flatpak")
+
+n_add=$(( ${#add_pacman[@]} + ${#add_aur[@]} + ${#add_flatpak[@]} ))
+
+show() { local label=$1; shift; (( $# )) && printf '%s (%d): %s\n' "$label" "$#" "$*"; return 0; }
+show "Neu -> pacman.txt"  "${add_pacman[@]}"
+show "Neu -> aur.txt"     "${add_aur[@]}"
+show "Neu -> flatpak.txt" "${add_flatpak[@]}"
+show "Wechsel AUR -> Repo" "${drop_aur[@]}"
+show "Wechsel Repo -> AUR" "${drop_pacman[@]}"
+show "Gelistet, aber nicht installiert (bleibt stehen)" "${missing[@]}"
+(( n_add == 0 )) && echo "Paketlisten sind aktuell."
+
+[[ $cmd == update ]] || exit 0
+
+for p in "${drop_aur[@]}";    do remove_line "$AUR_TXT" "$p"; done
+for p in "${drop_pacman[@]}"; do remove_line "$PACMAN_TXT" "$p"; done
+append_new "$PACMAN_TXT"  "${add_pacman[@]}"
+append_new "$AUR_TXT"     "${add_aur[@]}"
+append_new "$FLATPAK_TXT" "${add_flatpak[@]}"
+
+notify() {
+  (( do_notify )) && command -v notify-send >/dev/null && notify-send -a pkgsync "Paketlisten" "$1"
+  return 0
+}
+
+if (( do_commit )); then
+  cd "$REPO_DIR"
+  git_dir=$(git rev-parse --git-dir)
+  if [[ -e "$git_dir/MERGE_HEAD" || -d "$git_dir/rebase-merge" || -d "$git_dir/rebase-apply" ]]; then
+    echo "Merge/Rebase laeuft, committe nicht." >&2
+    notify "Listen aktualisiert, aber nicht committet (Merge/Rebase laeuft)."
+    exit 0
+  fi
+  git add -- packages/*.txt
+  if git diff --cached --quiet -- packages/; then
+    exit 0
+  fi
+  git commit -q -m "Paketlisten aktualisiert (pkgsync): $n_add neu" -- packages/
+  echo "Committet."
+  msg="$n_add neue Pakete erfasst und committet."
+  if (( do_push )); then
+    if git pull -q --rebase --autostash 2>/dev/null && git push -q 2>/dev/null; then
+      msg="$n_add neue Pakete erfasst und gepusht."
+    else
+      msg="$n_add neue Pakete committet, Push fehlgeschlagen."
+    fi
+  fi
+  (( ${#missing[@]} )) && msg+=" ${#missing[@]} gelistet, aber nicht installiert."
+  notify "$msg"
+elif (( n_add > 0 )); then
+  notify "$n_add neue Pakete in die Listen eingetragen."
+fi

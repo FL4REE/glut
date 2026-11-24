@@ -1,0 +1,32 @@
+{
+  "name": "raumring",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#0c1620",
+      "#bd6754",
+      "#eec356",
+      "#f7d622",
+      "#6781cf",
+      "#ce6b47",
+      "#5583c8",
+      "#f0df84",
+      "#6c7176",
+      "#eb896f",
+      "#ffcf00",
+      "#ffe300",
+      "#89a3ff",
+      "#fd8d5d",
+      "#76a6fe",
+      "#ffee50"
+    ],
+    "background": "#0c1620",
+    "foreground": "#f0df84",
+    "accent": "#6781cf",
+    "cursor": "#f0df84",
+    "selection": "#6c7176"
+  },
+  "wallpaper": "wallpaper.png",
+  "source": "manuell"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "sonnengott",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#000000",
+      "#ffbaad",
+      "#fcf078",
+      "#ebec80",
+      "#d390d9",
+      "#a565aa",
+      "#8b7562",
+      "#fefefc",
+      "#686163",
+      "#ffbca7",
+      "#fff200",
+      "#f3f627",
+      "#fbabff",
+      "#d083db",
+      "#b29980",
+      "#edeecd"
+    ],
+    "background": "#000000",
+    "foreground": "#fefefc",
+    "accent": "#d390d9",
+    "cursor": "#fefefc",
+    "selection": "#686163"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

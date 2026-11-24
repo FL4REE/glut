@@ -1,0 +1,33 @@
+{
+  "name": "dos-moos",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#131516",
+      "#f0334a",
+      "#819890",
+      "#f4e276",
+      "#a5b5ab",
+      "#72856c",
+      "#6d877d",
+      "#d5dbd7",
+      "#3a4849",
+      "#f0334a",
+      "#819890",
+      "#f4e276",
+      "#a5b5ab",
+      "#72856c",
+      "#6d877d",
+      "#f8ebe3"
+    ],
+    "background": "#131516",
+    "foreground": "#f8ebe3",
+    "accent": "#819890",
+    "cursor": "#f4e276",
+    "selection": "#a5b5ab"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-sage",
+  "source": "omarchy:https://github.com/HANCORE-linux/omarchy-dos-moos-theme"
+}

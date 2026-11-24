@@ -1,0 +1,32 @@
+{
+  "name": "Hello!",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#050412",
+      "#bf88a8",
+      "#bebdfc",
+      "#d89fc0",
+      "#7c97d3",
+      "#976b98",
+      "#90a4e8",
+      "#f9c988",
+      "#68686f",
+      "#eaaad3",
+      "#cbc3ff",
+      "#fbb9e3",
+      "#9fbbff",
+      "#c08bc5",
+      "#b3c6ff",
+      "#ffd361"
+    ],
+    "background": "#050412",
+    "foreground": "#f9c988",
+    "accent": "#7c97d3",
+    "cursor": "#f9c988",
+    "selection": "#f9c988"
+  },
+  "wallpaper": "wallpaper.png",
+  "source": "aether-blueprint:Hello!.json"
+}

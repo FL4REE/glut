@@ -1,0 +1,33 @@
+{
+  "name": "dracula",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#282a36",
+      "#ff5555",
+      "#50fa7b",
+      "#f1fa8c",
+      "#bd93f9",
+      "#ff79c6",
+      "#8be9fd",
+      "#f8f8f2",
+      "#6272a4",
+      "#ff6e6e",
+      "#69ff94",
+      "#ffffa5",
+      "#d6acff",
+      "#ff92df",
+      "#a4ffff",
+      "#f8f8f2"
+    ],
+    "background": "#282a36",
+    "foreground": "#f8f8f2",
+    "accent": "#8be9fd",
+    "cursor": "#f8f8f2",
+    "selection": "#6272a4"
+  },
+  "wallpaper": "wallpaper.png",
+  "icon_theme": "Yaru-purple",
+  "source": "omarchy:https://github.com/catlee/omarchy-dracula-theme"
+}

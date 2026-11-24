@@ -1,0 +1,33 @@
+{
+  "name": "ghost-pastel",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#070506",
+      "#b37580",
+      "#648ed0",
+      "#e095b5",
+      "#979fec",
+      "#cd9dcf",
+      "#7c93dd",
+      "#d9b6fd",
+      "#836f79",
+      "#d5aeb5",
+      "#a7c1e8",
+      "#f6dbe6",
+      "#e4e6fb",
+      "#eddaee",
+      "#c3cef2",
+      "#ffffff"
+    ],
+    "background": "#070506",
+    "foreground": "#ffffff",
+    "accent": "#979fec",
+    "cursor": "#ffffff",
+    "selection": "#979fec"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-magenta",
+  "source": "omarchy:https://github.com/row-huh/omarchy-ghost-pastel-theme"
+}

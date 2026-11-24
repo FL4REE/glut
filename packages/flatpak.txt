@@ -1,0 +1,2 @@
+# Neu erfasst (pkgsync) - bei Gelegenheit einsortieren
+com.github.johnfactotum.Foliate

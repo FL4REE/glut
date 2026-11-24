@@ -1,0 +1,32 @@
+{
+  "name": "aurora-wirbel",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#060217",
+      "#7d74bf",
+      "#a3cea4",
+      "#c9f2c5",
+      "#6b78b0",
+      "#8074c4",
+      "#4f8687",
+      "#fefefe",
+      "#68686e",
+      "#a294f4",
+      "#9ee298",
+      "#bfffb1",
+      "#8e9ae2",
+      "#a694fa",
+      "#6eacad",
+      "#f5ebce"
+    ],
+    "background": "#060217",
+    "foreground": "#fefefe",
+    "accent": "#6b78b0",
+    "cursor": "#fefefe",
+    "selection": "#68686e"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "source": "manuell"
+}

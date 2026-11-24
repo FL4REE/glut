@@ -1,0 +1,33 @@
+{
+  "name": "amekoji",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#232829",
+      "#b39a98",
+      "#98b3a3",
+      "#93b3a6",
+      "#85abbc",
+      "#bea7b0",
+      "#98b3b3",
+      "#d6dcdb",
+      "#788587",
+      "#b39898",
+      "#98b3a3",
+      "#c8dad3",
+      "#89b1c3",
+      "#e5dbdf",
+      "#98b3b3",
+      "#dcd6d6"
+    ],
+    "background": "#232829",
+    "foreground": "#dcd6d6",
+    "accent": "#85abbc",
+    "cursor": "#dcd6d6",
+    "selection": "#85abbc"
+  },
+  "wallpaper": "wallpaper.png",
+  "icon_theme": "Yaru-prussiangreen-dark",
+  "source": "omarchy:https://github.com/atif-1402/omarchy-amekoji-theme"
+}

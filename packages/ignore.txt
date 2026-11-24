@@ -1,0 +1,19 @@
+# Glob-Muster fuer Pakete, die pkgsync nie in die Listen eintraegt.
+
+# Treiber / Kernel / Microcode: macht install.sh per chwd -a passend zur Hardware
+*nvidia*
+amd-ucode
+intel-ucode
+linux-cachyos*
+ollama-cuda
+
+# Grundsystem, bringt jede CachyOS-Installation mit
+base
+sudo
+cachyos-*
+
+# baut install.sh selbst aus dem Quellcode
+paru
+
+# GPU-Backend fuer whisper.cpp (Nvidia); auf anderer Hardware laeuft diktat auf der CPU
+ggml-cuda

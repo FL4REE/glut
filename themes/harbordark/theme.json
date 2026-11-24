@@ -1,0 +1,33 @@
+{
+  "name": "harbordark",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#1b1b1b",
+      "#f44336",
+      "#e75a50",
+      "#a99b7a",
+      "#e58980",
+      "#77838a",
+      "#6d6d6d",
+      "#e1ce98",
+      "#817f68",
+      "#e75a50",
+      "#77838a",
+      "#a99b7a",
+      "#e58980",
+      "#9ba2a6",
+      "#888888",
+      "#efebdc"
+    ],
+    "background": "#1b1b1b",
+    "foreground": "#efebdc",
+    "accent": "#e75a50",
+    "cursor": "#c0af7f",
+    "selection": "#e75a50"
+  },
+  "wallpaper": "wallpaper.png",
+  "icon_theme": "Yaru-yellow",
+  "source": "omarchy:https://github.com/HANCORE-linux/omarchy-harbordark-theme"
+}

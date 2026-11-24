@@ -1,0 +1,33 @@
+{
+  "name": "nord",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#2e3440",
+      "#bf616a",
+      "#a3be8c",
+      "#ebcb8b",
+      "#81a1c1",
+      "#b48ead",
+      "#88c0d0",
+      "#d8dee9",
+      "#4c566a",
+      "#bf616a",
+      "#a3be8c",
+      "#ebcb8b",
+      "#81a1c1",
+      "#b48ead",
+      "#8fbcbb",
+      "#d8dee9"
+    ],
+    "background": "#2e3440",
+    "foreground": "#d8dee9",
+    "accent": "#81a1c1",
+    "cursor": "#d8dee9",
+    "selection": "#4c566a"
+  },
+  "wallpaper": "wallpaper.jpg",
+  "icon_theme": "Yaru-blue",
+  "source": "omarchy-core:nord"
+}

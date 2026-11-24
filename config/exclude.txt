@@ -1,0 +1,24 @@
+# rsync-Ausschlussmuster fuer confsync (gelten fuer alle Eintraege in manifest.txt)
+
+# Sicherungskopien
+*.bak
+*.bak-*
+*.backup*
+*~
+.dms-backups/
+
+# Maschinenspezifisch / Laufzeitzustand
+outputs.lua
+fish_variables
+__pycache__/
+.changelog-*
+
+# Plugins installiert install.sh aus ihren Quellen, nicht aus dem Repo
+plugins/
+plugins.lock.json
+
+# von themectl erzeugt (Quelle sind die Themes unter themes/)
+ts-*/
+
+# Wallpaper liegen als Release-Download vor (wallpapers-v1), nicht im Repo
+wallpaper.*

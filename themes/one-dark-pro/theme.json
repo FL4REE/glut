@@ -1,0 +1,33 @@
+{
+  "name": "one-dark-pro",
+  "version": 1,
+  "mode": "dark",
+  "palette": {
+    "colors": [
+      "#282c34",
+      "#e06c75",
+      "#98c379",
+      "#e5c07b",
+      "#61afef",
+      "#c678dd",
+      "#56b6c2",
+      "#abb2bf",
+      "#5c6370",
+      "#e06c75",
+      "#98c379",
+      "#e5c07b",
+      "#61afef",
+      "#c678dd",
+      "#56b6c2",
+      "#abb2bf"
+    ],
+    "background": "#282c34",
+    "foreground": "#abb2bf",
+    "accent": "#61afef",
+    "cursor": "#abb2bf",
+    "selection": "#5c6370"
+  },
+  "wallpaper": "wallpaper.png",
+  "icon_theme": "Yaru-blue-dark",
+  "source": "omarchy:https://github.com/sc0ttman/omarchy-one-dark-pro-theme"
+}
