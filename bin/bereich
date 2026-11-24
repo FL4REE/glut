@@ -1,0 +1,129 @@
+#!/usr/bin/env bash
+# bereich: Werkzeuge fuer einen Bildschirmbereich. Bereich mit der Maus
+# aufziehen (Esc bricht ab), dann passiert je nach Befehl:
+#
+#   bereich text          Text erkennen (OCR), in die Zwischenablage    SUPER+ALT+O
+#   bereich lens          Bereich mit Google Lens suchen                SUPER+ALT+G
+#   bereich uebersetzen   Text erkennen und uebersetzen                 SUPER+ALT+U
+#   bereich aufnahme      Bereich als Video aufnehmen (nochmal = Stop)  SUPER+ALT+R
+#   bereich aufnahme --ton   ... mit Systemton                          SUPER+ALT+SHIFT+R
+#
+# Einstellungen per Umgebungsvariable:
+#   BEREICH_OCR_LANG   Tesseract-Sprachen      (Standard: deu+eng)
+#   BEREICH_ZIEL       Zielsprache Uebersetzen (Standard: de; deutscher Text -> en)
+#   BEREICH_VIDEOS     Ordner fuer Aufnahmen   (Standard: ~/Videos/Aufnahmen)
+
+set -euo pipefail
+
+OCR_LANG="${BEREICH_OCR_LANG:-deu+eng}"
+ZIEL="${BEREICH_ZIEL:-de}"
+VIDEOS="${BEREICH_VIDEOS:-$HOME/Videos/Aufnahmen}"
+STATE="${XDG_RUNTIME_DIR:-/tmp}/bereich"
+mkdir -p "$STATE"
+
+notify() { notify-send -a Bereich "$@" 2>/dev/null || true; }
+need() { command -v "$1" >/dev/null || { notify -u critical "Bereich" "$1 fehlt (Paket ${2:-$1})"; exit 1; }; }
+
+# Bereich auswaehlen und als PNG nach $1 schreiben; Abbruch -> exit 0
+grab() {
+  dms screenshot region --no-confirm --no-notify --no-clipboard --stdout > "$1" 2>/dev/null || true
+  [[ -s $1 ]] || exit 0
+}
+
+ocr() {  # ocr <png> -> Text auf stdout
+  need tesseract
+  # 2x vergroessern hilft Tesseract bei kleiner Bildschirmschrift deutlich
+  magick "$1" -resize 200% -colorspace Gray "$1.ocr.png" 2>/dev/null || cp "$1" "$1.ocr.png"
+  tesseract "$1.ocr.png" - -l "$OCR_LANG" --psm 6 2>/dev/null | sed -E 's/[[:space:]]+$//' | sed -e :a -e '/^\n*$/{$d;N;ba' -e '}'
+}
+
+short() { local t; t=$(tr '\n' ' ' <<<"$1"); (( ${#t} > 220 )) && t="${t:0:220} …"; printf '%s' "$t"; }
+
+cmd_text() {
+  local img="$STATE/shot.png" text
+  grab "$img"
+  text=$(ocr "$img"); rm -f "$img" "$img.ocr.png"
+  [[ -n ${text//[[:space:]]/} ]] || { notify "Text erkennen" "Kein Text gefunden."; exit 0; }
+  printf '%s' "$text" | wl-copy
+  notify -i edit-copy "Text kopiert" "$(short "$text")"
+}
+
+cmd_lens() {
+  # Das Bild geht direkt an Google Lens (kein Umweg ueber einen oeffentlichen
+  # Datei-Host); Google antwortet mit der Ergebnisseite als Weiterleitung.
+  local img="$STATE/shot.png" url
+  grab "$img"
+  magick "$img" -resize '1600x1600>' -quality 90 "$STATE/shot.jpg" 2>/dev/null || cp "$img" "$STATE/shot.jpg"
+  notify -t 2000 "Google Lens" "Suche läuft …"
+  url=$(curl -s -o /dev/null -w '%{redirect_url}' --max-time 20 \
+    -F "encoded_image=@$STATE/shot.jpg;type=image/jpeg" \
+    "https://lens.google.com/v3/upload?hl=de" || true)
+  rm -f "$img" "$STATE/shot.jpg"
+  if [[ $url == https://* ]]; then
+    xdg-open "$url" >/dev/null 2>&1 &
+  else
+    notify -u critical "Google Lens" "Upload fehlgeschlagen."
+    exit 1
+  fi
+}
+
+cmd_uebersetzen() {
+  need trans translate-shell
+  local img="$STATE/shot.png" text out
+  grab "$img"
+  text=$(ocr "$img"); rm -f "$img" "$img.ocr.png"
+  [[ -n ${text//[[:space:]]/} ]] || { notify "Übersetzen" "Kein Text gefunden."; exit 0; }
+  notify -t 1500 "Übersetzen" "…"
+  out=$(trans -b -no-autocorrect ":$ZIEL" "$text" 2>/dev/null || true)
+  # Text war schon in der Zielsprache: dann ins Englische
+  if [[ -z $out || ${out,,} == "${text,,}" ]]; then
+    out=$(trans -b -no-autocorrect ":en" "$text" 2>/dev/null || true)
+  fi
+  [[ -n $out ]] || { notify -u critical "Übersetzen" "Übersetzung fehlgeschlagen (offline?)."; exit 1; }
+  printf '%s' "$out" | wl-copy
+  notify -t 12000 -i accessories-dictionary "Übersetzung (kopiert)" "$(short "$out")"
+}
+
+cmd_aufnahme() {
+  need gpu-screen-recorder
+  local pidf="$STATE/rec.pid" filef="$STATE/rec.file" geo x y w h out
+  if [[ -f $pidf ]] && kill -0 "$(cat "$pidf")" 2>/dev/null; then
+    kill -INT "$(cat "$pidf")"
+    for _ in $(seq 50); do kill -0 "$(cat "$pidf")" 2>/dev/null || break; sleep 0.1; done
+    out=$(cat "$filef" 2>/dev/null || true); rm -f "$pidf" "$filef"
+    if [[ -s $out ]]; then
+      printf 'file://%s' "$out" | wl-copy -t text/uri-list
+      notify -i video-x-generic "Aufnahme gespeichert" "$out (Pfad kopiert)"
+    else
+      notify -u critical "Aufnahme" "Keine Datei entstanden."
+    fi
+    exit 0
+  fi
+
+  geo=$(dms screenshot -g --no-confirm 2>/dev/null || true)   # "X,Y WxH"
+  [[ $geo =~ ^(-?[0-9]+),(-?[0-9]+)\ ([0-9]+)x([0-9]+) ]] || exit 0
+  x=${BASH_REMATCH[1]} y=${BASH_REMATCH[2]} w=${BASH_REMATCH[3]} h=${BASH_REMATCH[4]}
+  # Encoder wollen gerade Masse
+  w=$(( w / 2 * 2 )) h=$(( h / 2 * 2 ))
+  mkdir -p "$VIDEOS"
+  out="$VIDEOS/aufnahme-$(date +%Y-%m-%d_%H-%M-%S).mp4"
+  args=(-w region -region "${w}x${h}+${x}+${y}" -f 60 -k h264 -o "$out")
+  [[ ${1:-} == --ton ]] && args+=(-a default_output)
+  gpu-screen-recorder "${args[@]}" >"$STATE/rec.log" 2>&1 &
+  echo $! > "$pidf"; echo "$out" > "$filef"
+  sleep 0.6
+  if ! kill -0 "$(cat "$pidf")" 2>/dev/null; then
+    rm -f "$pidf" "$filef"
+    notify -u critical "Aufnahme" "Start fehlgeschlagen: $(tail -n1 "$STATE/rec.log")"
+    exit 1
+  fi
+  notify -t 2500 -i media-record "Aufnahme läuft" "Nochmal SUPER+ALT+R zum Beenden${1:+ (mit Ton)}"
+}
+
+case ${1:-} in
+  text|ocr) cmd_text ;;
+  lens) cmd_lens ;;
+  uebersetzen|übersetzen|translate) cmd_uebersetzen ;;
+  aufnahme|record) shift; cmd_aufnahme "${1:-}" ;;
+  *) sed -n '2,/^$/s/^# \{0,1\}//p' "$0"; exit 0 ;;
+esac

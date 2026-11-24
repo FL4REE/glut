@@ -128,6 +128,11 @@ Keyboard first. `SUPER + SHIFT + /` shows every bind on screen.
 | `SUPER + Space` | Launcher (type `~` to search themes) |
 | `SUPER + Return` | Terminal (Ghostty) |
 | `SUPER + ALT + D` | Dictate: speak, press again, the text is typed into the focused window |
+| `SUPER + ALT + O` | Select an area, copy the text in it (OCR) |
+| `SUPER + ALT + G` | Select an area, search it with Google Lens |
+| `SUPER + ALT + U` | Select an area, translate the text in it |
+| `SUPER + ALT + R` | Record an area (again to stop, `+ SHIFT` with sound) |
+| `SUPER + ALT + S` | Which song is playing? |
 | `SUPER + ALT + T` | Pick a theme |
 | `SUPER + ALT + N` | Next theme |
 | `SUPER + ALT + W` | Wallpaper carousel |
@@ -152,6 +157,8 @@ Small tools written for this desktop. They all live in [`bin/`](bin) and are lin
 | [`diktat`](bin/diktat) | Offline speech-to-text on a hotkey. Records with PipeWire, transcribes with whisper.cpp on the GPU, copies the text and types it into the focused window. |
 | [`app`](bin/app) | `app yt`, `app gh`, `app dc`: short names for websites (opened as their own windows, no tabs) and programs. Fuzzy picker without arguments, Fish completion. Edit [`config/app/apps.conf`](config/app/apps.conf). |
 | [pokefetch](https://github.com/Yanzz231/PokeFetch) + [`pokefetch-color`](bin/pokefetch-color) | Every new Fish shell opens with a Pokémon fetch, color-matched to the theme: `themectl` reads the real sprite colors of all Pokémon once and picks the 40 closest to the theme's accent, so a green theme gets green Pokémon. `pokefetch-color blau` picks by color class by hand, `--list` shows how many there are per color. |
+| [`bereich`](bin/bereich) | Area tools: drag a rectangle, then copy its text (Tesseract OCR, German + English), search it with Google Lens, translate it, or record it as video on the GPU (`gpu-screen-recorder`, optional system sound). The Lens image goes straight to Google, not through a public file host. |
+| [`welcher-song`](bin/welcher-song) | "Which song is this?" Listens to what your speakers are playing (not the mic) and names it via Shazam (`songrec`). Title and artist land in a notification and the clipboard. |
 | [`livewallpaper`](bin/livewallpaper) | Animated Wallpaper Engine backgrounds via `linux-wallpaperengine`, with a picker. |
 | [`confsync`](bin/confsync) | Mirrors the live configs into this repo ([`manifest.txt`](config/manifest.txt)). Refuses to commit anything that looks like an API key or token. |
 | [`pkgsync`](bin/pkgsync) | Keeps the package lists in step with what is really installed. New packages are appended, nothing is ever removed silently, drivers are filtered out via [`ignore.txt`](packages/ignore.txt). |

@@ -133,6 +133,12 @@ xl2tpd
 
 # Audio / Video
 whisper-cpp
+tesseract
+tesseract-data-deu
+tesseract-data-eng
+translate-shell
+gpu-screen-recorder
+songrec
 wtype
 pipewire-alsa
 pipewire-pulse

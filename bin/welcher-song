@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+# welcher-song: erkennt den Song, der gerade ueber die Lautsprecher laeuft
+# (YouTube, Spiel, Discord, ...), und zeigt Titel und Interpret an.
+# Hoert am Ausgang mit, nicht am Mikrofon. Nutzt songrec (Shazam-Erkennung).
+#
+#   welcher-song          SUPER+ALT+S
+#   welcher-song --mikro  stattdessen ueber das Mikrofon hoeren
+#
+# Bricht nach 25 Sekunden ohne Treffer ab. Nochmal ausloesen = abbrechen.
+
+set -euo pipefail
+
+STATE="${XDG_RUNTIME_DIR:-/tmp}/welcher-song"
+PIDF="$STATE.pid"
+DAUER=25
+
+notify() { notify-send -a "Welcher Song" "$@" 2>/dev/null || true; }
+command -v songrec >/dev/null || { notify -u critical "Welcher Song" "songrec fehlt (Paket songrec)"; exit 1; }
+
+# Laeuft schon? Dann abbrechen.
+if [[ -f $PIDF ]] && kill -0 "$(cat "$PIDF")" 2>/dev/null; then
+  kill "$(cat "$PIDF")" 2>/dev/null || true
+  rm -f "$PIDF"
+  notify -t 1500 "Welcher Song" "Abgebrochen."
+  exit 0
+fi
+
+if [[ ${1:-} == --mikro ]]; then
+  device=$(pactl get-default-source)
+else
+  device="$(pactl get-default-sink).monitor"
+fi
+
+notify -t $((DAUER * 1000)) -i audio-x-generic "Welcher Song" "Höre zu …"
+
+# songrec gibt pro Versuch eine JSON-Zeile aus; beim ersten Treffer aufhoeren
+echo $$ > "$PIDF"
+match=""
+coproc SR { exec timeout "$DAUER" songrec listen --audio-device "$device" --request-interval 3 \
+  --json --disable-mpris 2>/dev/null; }
+cleanup() { kill "${SR_PID:-}" 2>/dev/null || true; rm -f "$PIDF"; }
+trap cleanup EXIT
+trap 'cleanup; exit 0' TERM INT
+while IFS= read -r line <&"${SR[0]}"; do
+  if [[ $line =~ \"matches\":\ *\[\ *\{ ]]; then match=$line; break; fi
+done
+if [[ -z $match ]]; then
+  notify "Welcher Song" "Nichts erkannt."
+  exit 0
+fi
+
+mapfile -t info < <(python3 -c '
+import json, sys
+t = json.loads(sys.argv[1]).get("track", {})
+print(t.get("title", "?")); print(t.get("subtitle", "?")); print(t.get("url", ""))
+' "$match")
+title=${info[0]:-?} artist=${info[1]:-?} url=${info[2]:-}
+
+printf '%s – %s' "$artist" "$title" | wl-copy
+notify -t 10000 -i audio-x-generic "$title" "$artist (kopiert)${url:+\n$url}"
