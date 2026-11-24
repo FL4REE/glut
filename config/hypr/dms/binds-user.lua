@@ -19,3 +19,5 @@ hl.bind("SUPER + ALT + U", hl.dsp.exec_cmd("bereich uebersetzen"), { description
 hl.bind("SUPER + ALT + R", hl.dsp.exec_cmd("bereich aufnahme"), { description = "glut · Bereich aufnehmen (Start/Stop)" })
 hl.bind("SUPER + ALT + SHIFT + R", hl.dsp.exec_cmd("bereich aufnahme --ton"), { description = "glut · Bereich mit Ton aufnehmen" })
 hl.bind("SUPER + ALT + S", hl.dsp.exec_cmd("welcher-song"), { description = "glut · Welcher Song läuft?" })
+hl.bind("SUPER + ssharp", hl.dsp.exec_cmd("dms ipc call keybinds toggle hyprland"), { description = "glut · Tastenkürzel-Übersicht" })
+hl.bind("SUPER + F1", hl.dsp.exec_cmd("dms ipc call keybinds toggle hyprland"), { description = "glut · Tastenkürzel-Übersicht" })
