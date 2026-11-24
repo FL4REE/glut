@@ -87,7 +87,7 @@ link() {
 }
 
 log "Linking configs"
-for d in hypr dms ghostty fish nvim shelly theme-switcher app; do
+for d in hypr dms ghostty fish nvim shelly theme-switcher app pokefetch; do
   link "$REPO_DIR/config/$d" "$CONFIG_DIR/$d"
 done
 link "$CONFIG_DIR/dms" "$CONFIG_DIR/DankMaterialShell"   # older DMS path
@@ -148,6 +148,15 @@ if [ -n "$current" ] && command -v themectl >/dev/null; then
   themectl apply "$current" >/dev/null 2>&1 \
     || warn "Run 'themectl apply $current' once you are logged into Hyprland"
 fi
+
+# pokefetch: Pokemon fetch in every new Fish shell. themectl picks the
+# Pokemon whose sprite colors match the current theme.
+log "Installing pokefetch"
+clone https://github.com/Yanzz231/PokeFetch "$SRC_DIR/PokeFetch" 77e4bf5
+PF_VENV="$HOME/.local/share/pokefetch/venv"
+[ -d "$PF_VENV" ] || python3 -m venv "$PF_VENV"
+"$PF_VENV/bin/pip" install --quiet -e "$SRC_DIR/PokeFetch" || warn "pokefetch install failed"
+ln -sf "$PF_VENV/bin/pokefetch" "$BIN_DIR/pokefetch"
 
 # --------------------------------------------------------------------------
 # 5. Login screen: sddm-astronaut-theme with the Gargantua variant

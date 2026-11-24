@@ -9,6 +9,7 @@
 .config/nvim                          config/nvim
 .config/shelly                        config/shelly
 .config/theme-switcher                config/theme-switcher
+.config/pokefetch                     config/pokefetch
 .config/starship.toml                 config/starship/starship.toml
 .zshrc                                home/zshrc
 .local/share/theme-switcher/themes    themes

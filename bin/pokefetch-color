@@ -1,0 +1,106 @@
+#!/usr/bin/env python3
+"""Zufälliges Pokémon einer Hauptfarbe für pokefetch.
+
+  pokefetch-color blau          -> Name eines zufälligen blauen Pokémon
+  pokefetch-color rot gelb      -> aus mehreren Farben
+  pokefetch-color --list        -> Anzahl pro Farbe
+  pokefetch-color --show blau   -> alle Namen dieser Farbe
+  --shiny                       -> Shiny-Sprites auswerten
+"""
+import colorsys
+import os
+import random
+import re
+import sys
+from collections import Counter
+from pathlib import Path
+
+SPRITES = next(
+    (p for p in [
+        os.environ.get("POKEFETCH_SPRITES"),
+        Path.home() / "Projekte/PokeFetch-src/src/colorscripts",
+        Path.home() / ".local/src/glut/PokeFetch/src/colorscripts",  # von glut/install.sh
+    ] if p and Path(p).is_dir()),
+    Path.home() / ".local/src/glut/PokeFetch/src/colorscripts",
+)
+SPRITES = Path(SPRITES)
+CACHE = Path(os.environ.get("XDG_CACHE_HOME", Path.home() / ".cache")) / "pokefetch"
+COLORS = ["rot", "orange", "gelb", "grün", "blau", "lila", "pink", "braun", "grau", "weiß", "schwarz"]
+CELL = re.compile(r"\x1b\[38;2;(\d+);(\d+);(\d+)m(?:\x1b\[48;2;(\d+);(\d+);(\d+)m)?([▀▄])")
+
+
+def classify(r, g, b):
+    h, s, v = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
+    h *= 360
+    if v < 0.22 or (s < 0.3 and v < 0.55):
+        return "schwarz"
+    if s < 0.18:
+        return "weiß" if v > 0.75 else "grau"
+    if 15 <= h < 68 and s < 0.3 and v > 0.85:
+        return "weiß"  # Creme
+    if (h < 25 or h >= 340) and s < 0.45 and v > 0.7:
+        return "pink"
+    if 15 <= h < 50 and s >= 0.3 and (v < 0.78 or s < 0.62):
+        return "braun"
+    for limit, name in ((15, "rot"), (40, "orange"), (68, "gelb"), (165, "grün"), (245, "blau"), (290, "lila"), (340, "pink")):
+        if h < limit:
+            return name
+    return "rot"
+
+
+def main_color(text):
+    counts = Counter()
+    for m in CELL.finditer(text):
+        fg = tuple(map(int, m.group(1, 2, 3)))
+        # ▀ ohne Hintergrund / ▄: nur ein Pixel sichtbar; mit Hintergrund zwei Pixel
+        pixels = [fg] if m.group(4) is None else [fg, tuple(map(int, m.group(4, 5, 6)))]
+        for p in pixels:
+            if max(p) - min(p) < 20 and max(p) < 80:  # Umriss/Schattierung ignorieren
+                continue
+            counts[classify(*p)] += 1
+    return counts.most_common(1)[0][0] if counts else "schwarz"
+
+
+def index(variant):
+    src = SPRITES / "small" / variant
+    cache = CACHE / f"colors-{variant}.tsv"
+    if cache.exists() and cache.stat().st_mtime >= src.stat().st_mtime:
+        return [line.split("\t") for line in cache.read_text().splitlines()]
+    rows = [(f.name, main_color(f.read_text(encoding="utf-8"))) for f in sorted(src.iterdir()) if f.is_file()]
+    CACHE.mkdir(parents=True, exist_ok=True)
+    cache.write_text("".join(f"{n}\t{c}\n" for n, c in rows))
+    return rows
+
+
+def main(argv):
+    variant = "shiny" if "--shiny" in argv else "regular"
+    args = [a for a in argv if a != "--shiny"]
+    rows = index(variant)
+    if not args or args[0] in ("-h", "--help"):
+        print(__doc__.strip(), "\nFarben:", ", ".join(COLORS))
+        return 0
+    if args[0] == "--list":
+        counts = Counter(c for _, c in rows)
+        for c in COLORS:
+            print(f"{c:8} {counts[c]}")
+        return 0
+    show = args[0] == "--show"
+    wanted = {a.lower() for a in args[show:]}
+    bad = wanted - set(COLORS)
+    if bad:
+        print(f"Unbekannte Farbe: {', '.join(bad)}. Möglich: {', '.join(COLORS)}", file=sys.stderr)
+        return 2
+    names = [n for n, c in rows if c in wanted]
+    if not names:
+        print("Kein Pokémon in dieser Farbe gefunden", file=sys.stderr)
+        return 1
+    print("\n".join(names) if show else random.choice(names))
+    return 0
+
+
+assert classify(222, 181, 90) == "braun" and classify(131, 115, 189) == "lila" and classify(255, 189, 165) == "pink"
+assert classify(246, 213, 49) == "gelb" and classify(230, 40, 40) == "rot" and classify(60, 120, 230) == "blau"
+assert classify(80, 190, 80) == "grün" and classify(140, 90, 40) == "braun" and classify(250, 250, 250) == "weiß"
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

@@ -36,7 +36,7 @@
 - **Exact, not approximate.** The repo is a mirror of the live machine. Every night a timer copies the real configs and the real package list back into this repo and pushes them. What you clone is what I'm running today.
 - **One command.** `install.sh` takes a fresh CachyOS install to this desktop: packages, configs, shell plugins, 136 themes, login screen, services, tools.
 - **Hardware-agnostic.** GPU drivers and microcode are not copied from my machine. CachyOS' `chwd` picks the right ones for yours.
-- **Wallpaper is the theme.** Pick a wallpaper and the whole desktop follows it: shell, window borders, terminal, prompt, editor.
+- **Wallpaper is the theme.** Pick a wallpaper and the whole desktop follows it: shell, window borders, terminal, prompt, editor, even the Pokémon that greets you in every new terminal.
 - **Offline where it counts.** Speech-to-text runs locally on the GPU, nothing leaves the machine.
 
 ## Install
@@ -66,7 +66,7 @@ Reboot, pick Hyprland on the login screen, done. Re-running `install.sh` is safe
 | 1. Packages | Full `pacman -Syu`, builds `paru` from source (CachyOS' libalpm breaks `paru-bin`), installs [`pacman.txt`](packages/pacman.txt), [`aur.txt`](packages/aur.txt), [`flatpak.txt`](packages/flatpak.txt), then `chwd -a` for drivers. |
 | 2. Configs | Symlinks `config/*` into `~/.config`, so a `git pull` updates the desktop in place. Rewrites absolute paths for your username. |
 | 3. Shell plugins | Links the plugins in [`projects/`](projects), clones the third-party ones at pinned commits. |
-| 4. Themes | Installs `themectl`, the 136 palettes in [`themes/`](themes) and the wallpaper pack from the [releases](https://github.com/FL4REE/glut/releases), then applies the current theme. |
+| 4. Themes | Installs `themectl`, pokefetch, the 136 palettes in [`themes/`](themes) and the wallpaper pack from the [releases](https://github.com/FL4REE/glut/releases), then applies the current theme. |
 | 5. Login screen | SDDM with [sddm-astronaut-theme](https://github.com/Keyitdev/sddm-astronaut-theme) and the animated [Gargantua](https://github.com/FL4REE/sddm-gargantua) variant. |
 | 6. Services | DMS, calendar daemon, session target, the nightly sync timer (owner only). |
 | 7. Speech-to-text | Downloads the Whisper `large-v3-turbo` model. |
@@ -103,9 +103,10 @@ Small tools written for this desktop. They all live in [`bin/`](bin) and are lin
 
 | Tool | What it does |
 | :--- | :--- |
-| [`themectl`](https://github.com/FL4REE/theme-switcher) | The theme engine. Turns a wallpaper into a full palette and applies it in one go: shell and window borders (via matugen), wallpaper, Starship, Neovim, icon theme. Imports themes from aether, iTerm2 and Omarchy. Comes with a theme gallery and a launcher plugin. |
+| [`themectl`](https://github.com/FL4REE/theme-switcher) | The theme engine. Turns a wallpaper into a full palette and applies it in one go: shell and window borders (via matugen), wallpaper, Starship, Neovim, icon theme and the terminal Pokémon. Imports themes from aether, iTerm2 and Omarchy. Comes with a theme gallery and a launcher plugin. |
 | [`diktat`](bin/diktat) | Offline speech-to-text on a hotkey. Records with PipeWire, transcribes with whisper.cpp on the GPU, copies the text and types it into the focused window. |
 | [`app`](bin/app) | `app yt`, `app gh`, `app dc`: short names for websites (opened as their own windows, no tabs) and programs. Fuzzy picker without arguments, Fish completion. Edit [`config/app/apps.conf`](config/app/apps.conf). |
+| [pokefetch](https://github.com/Yanzz231/PokeFetch) + [`pokefetch-color`](bin/pokefetch-color) | Every new Fish shell opens with a Pokémon fetch, color-matched to the theme: `themectl` reads the real sprite colors of all Pokémon once and picks the 40 closest to the theme's accent, so a green theme gets green Pokémon. `pokefetch-color blau` picks by color class by hand, `--list` shows how many there are per color. |
 | [`livewallpaper`](bin/livewallpaper) | Animated Wallpaper Engine backgrounds via `linux-wallpaperengine`, with a picker. |
 | [`confsync`](bin/confsync) | Mirrors the live configs into this repo ([`manifest.txt`](config/manifest.txt)). Refuses to commit anything that looks like an API key or token. |
 | [`pkgsync`](bin/pkgsync) | Keeps the package lists in step with what is really installed. New packages are appended, nothing is ever removed silently, drivers are filtered out via [`ignore.txt`](packages/ignore.txt). |
@@ -174,6 +175,7 @@ glut/
 - [wallpaperCarousel](https://github.com/motor-dev/wallpaperCarousel) (MIT) and [dms-claudecode](https://github.com/titeya/dms-claudecode) (MIT): shell plugins, installed from upstream.
 - [sddm-astronaut-theme](https://github.com/Keyitdev/sddm-astronaut-theme) (GPL-3.0): the login screen base.
 - [runcat-text](https://github.com/bzglve/runcat-text) (BSD-2-Clause): the cat font in RunCat, [license](projects/RunCat/LICENSE-runcat.ttf).
+- [PokeFetch](https://github.com/Yanzz231/PokeFetch) and the sprites from [pokemon-colorscripts](https://gitlab.com/phoneybadger/pokemon-colorscripts): the terminal Pokémon.
 - [whisper.cpp](https://github.com/ggml-org/whisper.cpp), [aether](https://github.com/bjarneo/aether), [matugen](https://github.com/InioX/matugen), [AstroNvim](https://github.com/AstroNvim/AstroNvim).
 - Inspired by [osyx](https://github.com/rccyx/osyx).
 - Wallpapers belong to their respective artists.
