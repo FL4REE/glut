@@ -75,10 +75,12 @@
     <td><b>Every keybind, searchable.</b> <code>SUPER + SHIFT + /</code> lists all binds by category. Click one to run it.</td>
   </tr>
   <tr>
-    <td colspan="2"><img width="100%" alt="Login screen" src=".github/assets/feat-login.jpg" /></td>
+    <td><img width="100%" alt="Desktop context menu" src=".github/assets/feat-contextmenu.jpg" /></td>
+    <td><img width="100%" alt="Login screen" src=".github/assets/feat-login.jpg" /></td>
   </tr>
   <tr>
-    <td colspan="2"><b>Login screen.</b> SDDM with an animated Gargantua black hole (<a href="https://github.com/FL4REE/sddm-gargantua">sddm-gargantua</a>). The accretion disk moves.</td>
+    <td><b>Right-click the desktop.</b> A Windows-style context menu: apps, terminal, files, browser, plus submenus for tools, screenshots, wallpaper, themes and system (<a href="projects/DesktopContextMenu">DesktopContextMenu</a>).</td>
+    <td><b>Login screen.</b> SDDM with an animated Gargantua black hole (<a href="https://github.com/FL4REE/sddm-gargantua">sddm-gargantua</a>). The accretion disk moves.</td>
   </tr>
 </table>
 
