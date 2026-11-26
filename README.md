@@ -82,6 +82,12 @@
     <td><b>Right-click the desktop.</b> A Windows-style context menu: apps, terminal, files, browser, plus submenus for tools, screenshots, wallpaper, themes and system (<a href="projects/DesktopContextMenu">DesktopContextMenu</a>).</td>
     <td><b>Login screen.</b> SDDM with an animated Gargantua black hole (<a href="https://github.com/FL4REE/sddm-gargantua">sddm-gargantua</a>). The accretion disk moves.</td>
   </tr>
+  <tr>
+    <td colspan="2"><img width="100%" alt="Plugin Store" src=".github/assets/feat-plugin-store.jpg" /></td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Plugin Store.</b> <code>SUPER + ALT + P</code>: 427 DMS plugins to install with one click and 7,000+ Omarchy plugins to browse. Omarchy plugins are built for a different shell, so <i>Für DMS portieren</i> clones one and hands it to Claude Code, which rebuilds it as a DMS plugin.</td>
+  </tr>
 </table>
 
 ## Install
