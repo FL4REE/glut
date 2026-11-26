@@ -300,7 +300,7 @@ Panels und Einstellungen müssen auf die DMS-Plugin-API umgestellt werden.
    LICENSE und Hinweis auf das Original übernehmen und den Ordner in
    `~/Projekte/glut/config/manifest.txt` eintragen, damit glut ihn mitführt.
    Ohne Lizenz oder bei unklarer Lizenz: nur lokal nutzen, **nicht** in glut aufnehmen.
-5. Regeln aus `~/Projekte/glut/CLAUDE.md` beachten.
+5. Regeln aus `~/Projekte/glut/CLAUDE.local.md` beachten (falls vorhanden).
 """
 
 

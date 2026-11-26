@@ -14,3 +14,6 @@ themes/*/wallpaper.*
 
 # Python-Cache (py_compile)
 __pycache__/
+
+# Persoenliche Claude-Notizen, liegen in glut-private
+CLAUDE.local.md

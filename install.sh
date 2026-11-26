@@ -207,6 +207,7 @@ fi
 # 8. Private overlay (personal stuff that is not part of the public repo)
 if [ "$HAS_PRIVATE" = 1 ]; then
   log "Private overlay: $PRIVATE_REPO"
+  export GLUT_DIR="$REPO_DIR"
   dir="$HOME/Projekte/$(basename "$PRIVATE_REPO")"
   [ -d "$dir/.git" ] || gh repo clone "$PRIVATE_REPO" "$dir" -- -q
   "$dir/install.sh"
