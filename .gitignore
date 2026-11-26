@@ -11,3 +11,6 @@ config/dms/settings.json.bak-*
 config/dms/plugins/
 config/dms/themes/ts-*/
 themes/*/wallpaper.*
+
+# Python-Cache (py_compile)
+__pycache__/
