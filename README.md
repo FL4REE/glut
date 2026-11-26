@@ -29,6 +29,8 @@
   </tr>
 </table>
 
+> **Full documentation: the [glut wiki](https://github.com/FL4REE/glut/wiki)** explains every feature, shortcut and setting.
+
 ## What this is
 
 *Glut* is German for embers. It is my daily desktop, published the way it actually runs, not a cleaned-up showcase.

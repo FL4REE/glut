@@ -38,6 +38,8 @@ Tools auf Deutsch.
 3. Befehle ohne Pfad aufrufen, denn Hyprland hat `~/.local/bin` im PATH. Danach `hyprctl reload`, `hyprctl configerrors` und
    `dms keybinds show hyprland` prüfen.
 4. README: Zeile in der Keybinds-Tabelle und in „Custom tooling“. Pakete in `pacman.txt`.
+   **Wiki** (github.com/FL4REE/glut/wiki, Klon in `~/Projekte/glut-wiki`, Englisch): eigene Seite oder Abschnitt,
+   dazu `Keybindings.md`, `_Sidebar.md`, `Home.md`. Nur Geprüftes, dann committen und pushen.
 5. `confsync update`, committen, pushen.
 
 Bisherige Tools: diktat (whisper.cpp/CUDA), app (Web-Apps per Kurzname), bereich (OCR/Lens/Übersetzen/GPU-Aufnahme),
