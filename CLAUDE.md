@@ -11,7 +11,7 @@ Tools auf Deutsch.
   oder Claude-Config, keine Fotos von Erik. Das gehört nach **FL4REE/glut-private** (`~/Projekte/glut-private`), das
   `install.sh` am Ende ausführt, wenn `gh` Zugriff hat.
 - Git-Identität im Repo: `FL4REE <86767765+FL4REE@users.noreply.github.com>` (lokal gesetzt). Commit-Nachrichten auf
-  Deutsch, mit `Co-Authored-By`-Zeile. Vor dem Push `git pull --rebase --autostash`, denn der nächtliche Timer pusht auch.
+  Deutsch, ohne `Co-Authored-By`-Zeile. Vor dem Push `git pull --rebase --autostash`, denn der nächtliche Timer pusht auch.
 - Keinen fremden Code ins Repo kopieren. Plugins und Themes holt `install.sh` aus der Quelle, festgelegt auf einen Commit.
   Von GPL-Projekten (z. B. end-4/dots-hyprland) nur Ideen übernehmen, nichts abschreiben.
 - Aussagen in der README nur machen, wenn sie geprüft sind (Hotkeys, Funktionen, Beschreibungen von Plugins).
