@@ -134,6 +134,10 @@ DesktopPluginComponent {
     function run(args) {
         return () => Quickshell.execDetached(args)
     }
+    // glut-Tools in ~/.local/bin (DMS als Dienst hat das nicht zwingend im PATH)
+    function glut(name, args) {
+        return run([Quickshell.env("HOME") + "/.local/bin/" + name].concat(args || []))
+    }
 
     property var menuItems: [
         {
@@ -181,7 +185,15 @@ DesktopPluginComponent {
                 { icon: "speaker", text: "Audio-Ausgang wechseln",
                   action: dmsIpc(["audio", "cycleoutput"]) },
                 { icon: "dock_to_bottom", text: "Dock ein-/ausblenden",
-                  action: dmsIpc(["dock", "toggle"]) }
+                  action: dmsIpc(["dock", "toggle"]) },
+                { icon: "swap_horiz", text: "App-Leiste ↔ Dock unten",
+                  action: glut("dockmodus") },
+                { icon: "mic", text: "Diktat starten/stoppen",
+                  action: glut("diktat") },
+                { icon: "music_note", text: "Welcher Song läuft?",
+                  action: glut("welcher-song") },
+                { icon: "extension", text: "Plugin Store",
+                  action: glut("plugin-store") }
             ]
         },
         {
@@ -195,6 +207,21 @@ DesktopPluginComponent {
                   action: run(["dms", "screenshot", "window"]) },
                 { icon: "select_all", text: "Alle Bildschirme",
                   action: run(["dms", "screenshot", "all"]) }
+            ]
+        },
+        {
+            icon: "highlight_alt", text: "Bereich",
+            children: [
+                { icon: "text_fields", text: "Text erkennen (OCR)",
+                  action: glut("bereich", ["text"]) },
+                { icon: "image_search", text: "Mit Google Lens suchen",
+                  action: glut("bereich", ["lens"]) },
+                { icon: "translate", text: "Text übersetzen",
+                  action: glut("bereich", ["uebersetzen"]) },
+                { icon: "videocam", text: "Aufnehmen (Start/Stop)",
+                  action: glut("bereich", ["aufnahme"]) },
+                { icon: "video_call", text: "Mit Ton aufnehmen",
+                  action: glut("bereich", ["aufnahme", "--ton"]) }
             ]
         },
         {
