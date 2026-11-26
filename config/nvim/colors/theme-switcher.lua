@@ -1,4 +1,4 @@
--- Erzeugt von theme-switcher, Theme: DMC. Nicht von Hand bearbeiten.
+-- Erzeugt von theme-switcher, Theme: spectra. Nicht von Hand bearbeiten.
 vim.cmd("highlight clear")
 if vim.fn.exists("syntax_on") == 1 then vim.cmd("syntax reset") end
 vim.o.background = "dark"
@@ -6,22 +6,22 @@ vim.g.colors_name = "theme-switcher"
 vim.o.termguicolors = true
 
 local c = {
-  base00 = "#090909",
-  base01 = "#131313",
-  base02 = "#e2e2e2",
-  base03 = "#62605a",
-  base04 = "#969696",
-  base05 = "#e2e2e2",
-  base06 = "#efefef",
-  base07 = "#fcfcfc",
-  base08 = "#969696",
-  base09 = "#c4c4c4",
-  base0A = "#f2f2f2",
-  base0B = "#c3c3c3",
-  base0C = "#dadada",
-  base0D = "#808080",
-  base0E = "#acacac",
-  base0F = "#656565",
+  base00 = "#1a1b1e",
+  base01 = "#232529",
+  base02 = "#b2c3ff",
+  base03 = "#828286",
+  base04 = "#a1a2a6",
+  base05 = "#eaeaef",
+  base06 = "#f4f4f7",
+  base07 = "#ffffff",
+  base08 = "#ef5d67",
+  base09 = "#f3915d",
+  base0A = "#f7c553",
+  base0B = "#8edb73",
+  base0C = "#7dd8d3",
+  base0D = "#ffffff",
+  base0E = "#e29ef3",
+  base0F = "#a4464d",
 }
 
 local hl = function(group, opts) vim.api.nvim_set_hl(0, group, opts) end
@@ -197,19 +197,19 @@ hl("MiniStatuslineModeNormal", { fg = c.base00, bg = c.base0D, bold=true })
 hl("MiniStatuslineModeInsert", { fg = c.base00, bg = c.base0B, bold=true })
 hl("MiniStatuslineModeVisual", { fg = c.base00, bg = c.base0E, bold=true })
 
-vim.g.terminal_color_0 = "#090909"
-vim.g.terminal_color_1 = "#969696"
-vim.g.terminal_color_2 = "#c3c3c3"
-vim.g.terminal_color_3 = "#f2f2f2"
-vim.g.terminal_color_4 = "#808080"
-vim.g.terminal_color_5 = "#acacac"
-vim.g.terminal_color_6 = "#dadada"
-vim.g.terminal_color_7 = "#e2e2e2"
-vim.g.terminal_color_8 = "#62605a"
-vim.g.terminal_color_9 = "#a8a8a8"
-vim.g.terminal_color_10 = "#d6d6d6"
-vim.g.terminal_color_11 = "#f5f5f5"
-vim.g.terminal_color_12 = "#929292"
-vim.g.terminal_color_13 = "#bfbfbf"
-vim.g.terminal_color_14 = "#eeeeee"
-vim.g.terminal_color_15 = "#fcfcfc"
+vim.g.terminal_color_0 = "#2b2d31"
+vim.g.terminal_color_1 = "#ef5d67"
+vim.g.terminal_color_2 = "#8edb73"
+vim.g.terminal_color_3 = "#f7c553"
+vim.g.terminal_color_4 = "#7ca5ff"
+vim.g.terminal_color_5 = "#e29ef3"
+vim.g.terminal_color_6 = "#7dd8d3"
+vim.g.terminal_color_7 = "#f8f8fa"
+vim.g.terminal_color_8 = "#505258"
+vim.g.terminal_color_9 = "#ff7680"
+vim.g.terminal_color_10 = "#a2ee8b"
+vim.g.terminal_color_11 = "#ffd86f"
+vim.g.terminal_color_12 = "#97b6ff"
+vim.g.terminal_color_13 = "#efb5f9"
+vim.g.terminal_color_14 = "#94e8e3"
+vim.g.terminal_color_15 = "#ffffff"
