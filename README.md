@@ -140,6 +140,7 @@ Keyboard first. `SUPER + ß` (the `?` key on a German keyboard) or `SUPER + F1` 
 | `SUPER + ALT + R` | Record an area (again to stop, `+ SHIFT` with sound) |
 | `SUPER + ALT + S` | Which song is playing? |
 | `SUPER + ALT + P` | Plugin Store: browse and install DMS and Omarchy plugins |
+| `SUPER + ALT + B` | Switch the left app bar to a macOS-style dock at the bottom and back |
 | `SUPER + ALT + T` | Pick a theme |
 | `SUPER + ALT + N` | Next theme |
 | `SUPER + ALT + W` | Wallpaper carousel |
@@ -167,6 +168,7 @@ Small tools written for this desktop. They all live in [`bin/`](bin) and are lin
 | [`bereich`](bin/bereich) | Area tools: drag a rectangle, then copy its text (Tesseract OCR, German + English), search it with Google Lens, translate it, or record it as video on the GPU (`gpu-screen-recorder`, optional system sound). The Lens image goes straight to Google, not through a public file host. |
 | [`welcher-song`](bin/welcher-song) | "Which song is this?" Listens to what your speakers are playing (not the mic) and names it via Shazam (`songrec`). Title and artist land in a notification and the clipboard. |
 | [`plugin-store`](bin/plugin-store) | One window for two plugin catalogs: the 427 [DMS plugins](https://github.com/duxlabs-dev/dux-plugin-registry) (install, remove, switch on/off with one click) and the 7,000+ [Omarchy plugins](https://plugins.omarchy.org/). Omarchy plugins are written for Omarchy's own shell and do not run in DMS as-is, so the store offers to port them: it clones the plugin and starts a Claude Code session that rebuilds it as a DMS plugin. Installed plugins are pinned in `plugins.lock.json`, which `install.sh` restores. |
+| [`dockmodus`](bin/dockmodus) | Toggles between the app bar on the left and a centered DMS dock at the bottom, like macOS. Pinned apps move along, so both always show the same apps. |
 | [`livewallpaper`](bin/livewallpaper) | Animated Wallpaper Engine backgrounds via `linux-wallpaperengine`, with a picker. |
 | [`confsync`](bin/confsync) | Mirrors the live configs into this repo ([`manifest.txt`](config/manifest.txt)). Refuses to commit anything that looks like an API key or token. |
 | [`pkgsync`](bin/pkgsync) | Keeps the package lists in step with what is really installed. New packages are appended, nothing is ever removed silently, drivers are filtered out via [`ignore.txt`](packages/ignore.txt). |

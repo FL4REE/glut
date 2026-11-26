@@ -42,7 +42,8 @@ Tools auf Deutsch.
 
 Bisherige Tools: diktat (whisper.cpp/CUDA), app (Web-Apps per Kurzname), bereich (OCR/Lens/Übersetzen/GPU-Aufnahme),
 welcher-song (songrec), plugin-store (GUI `apps/plugin-store/shell.qml`, DMS- und Omarchy-Katalog, Omarchy-Ports
-in `~/Projekte/dms-ports/`), pokefetch-color, livewallpaper, confsync, pkgsync. Dazu themectl aus FL4REE/theme-switcher.
+in `~/Projekte/dms-ports/`), pokefetch-color, livewallpaper, dockmodus (App-Leiste ↔ Dock; Pins in
+`~/.local/state/DankMaterialShell/session.json` liest DMS nur beim Start, daher `dms restart`), confsync, pkgsync. Dazu themectl aus FL4REE/theme-switcher.
 
 ## Praktisches und Stolperfallen
 
