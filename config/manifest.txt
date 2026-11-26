@@ -19,3 +19,4 @@ Projekte/Contextmenu/DesktopContextMenu     projects/DesktopContextMenu
 Projekte/Fussball-Ticker/FussballTicker     projects/FussballTicker
 Projekte/RunCat/RunCatWidget                projects/RunCat
 Projekte/MediaFlyouts                       projects/MediaFlyouts
+Projekte/IoGithubEjuroBlowOffSomeSteam         projects/IoGithubEjuroBlowOffSomeSteam
