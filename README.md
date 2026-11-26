@@ -83,6 +83,12 @@
     <td><b>Login screen.</b> SDDM with an animated Gargantua black hole (<a href="https://github.com/FL4REE/sddm-gargantua">sddm-gargantua</a>). The accretion disk moves.</td>
   </tr>
   <tr>
+    <td colspan="2"><img width="100%" alt="Dock at the bottom" src=".github/assets/feat-dock.jpg" /></td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Bar or dock.</b> <code>SUPER + ALT + B</code> swaps the app bar on the left for a centered dock at the bottom, macOS style, with a gentle 120 % magnification on hover. Pinned apps move along both ways.</td>
+  </tr>
+  <tr>
     <td colspan="2"><img width="100%" alt="Plugin Store" src=".github/assets/feat-plugin-store.jpg" /></td>
   </tr>
   <tr>
