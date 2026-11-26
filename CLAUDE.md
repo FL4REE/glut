@@ -25,6 +25,8 @@ Tools auf Deutsch.
 - Auf Rechnern, die mit `install.sh` eingerichtet wurden, sind die Configs Symlinks ins Repo.
 - Neuer Config-Ort: eine Zeile in `manifest.txt`. Neues Paket: in `packages/pacman.txt` (pkgsync ergänzt es sonst
   nachts unter „Neu erfasst“). Treiber, Kernel und `cachyos-*` stehen in `packages/ignore.txt`.
+- Fremde DMS-Plugins stehen in `config/dms/plugins.lock.json` (`dms plugins lock`, macht der Plugin Store automatisch);
+  `install.sh` stellt sie mit `dms plugins restore` wieder her. Nicht mehr von Hand in `install.sh` klonen.
 - Wallpaper sind **nicht** im Repo. Sie liegen als Release-Asset `wallpapers-v1/wallpapers.tar` (136 Themes, 496 MB).
 
 ## Ein neues Tool hinzufügen
@@ -39,7 +41,8 @@ Tools auf Deutsch.
 5. `confsync update`, committen, pushen.
 
 Bisherige Tools: diktat (whisper.cpp/CUDA), app (Web-Apps per Kurzname), bereich (OCR/Lens/Übersetzen/GPU-Aufnahme),
-welcher-song (songrec), pokefetch-color, livewallpaper, confsync, pkgsync. Dazu themectl aus FL4REE/theme-switcher.
+welcher-song (songrec), plugin-store (GUI `apps/plugin-store/shell.qml`, DMS- und Omarchy-Katalog, Omarchy-Ports
+in `~/Projekte/dms-ports/`), pokefetch-color, livewallpaper, confsync, pkgsync. Dazu themectl aus FL4REE/theme-switcher.
 
 ## Praktisches und Stolperfallen
 

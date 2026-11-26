@@ -139,6 +139,7 @@ tesseract-data-eng
 translate-shell
 gpu-screen-recorder
 songrec
+qt6-imageformats
 wtype
 pipewire-alsa
 pipewire-pulse

@@ -13,9 +13,8 @@ fish_variables
 __pycache__/
 .changelog-*
 
-# Plugins installiert install.sh aus ihren Quellen, nicht aus dem Repo
+# Plugins installiert install.sh aus ihren Quellen (plugins.lock.json wird mitgespiegelt)
 plugins/
-plugins.lock.json
 
 # von themectl erzeugt (Quelle sind die Themes unter themes/)
 ts-*/

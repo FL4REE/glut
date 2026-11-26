@@ -1,0 +1,378 @@
+#!/usr/bin/env python3
+"""plugin-store: DMS- und Omarchy-Plugins suchen, installieren und portieren.
+
+  plugin-store                 Fenster oeffnen (SUPER+ALT+P)
+  plugin-store omarchy spotify Fenster mit Reiter und Suchbegriff oeffnen
+  plugin-store catalog [--refresh]   beide Kataloge als JSON (fuer die GUI)
+  plugin-store install <id>    DMS-Plugin installieren und aktivieren
+  plugin-store uninstall <id>  DMS-Plugin entfernen
+  plugin-store enable|disable <id>   installiertes Plugin ein-/ausschalten
+  plugin-store port <id>       Omarchy-Plugin mit Claude Code nach DMS portieren
+  plugin-store --install-desktop   Starter im App-Menue anlegen
+
+DMS-Plugins kommen aus github.com/duxlabs-dev/dux-plugin-registry und laufen
+sofort. Omarchy-Plugins (plugins.omarchy.org) sind fuer Omarchys eigene Shell
+gebaut und laufen in DMS erst nach einer Portierung; dafuer startet `port`
+eine Claude-Code-Sitzung in ~/Projekte/dms-ports/<id>.
+"""
+import json
+import os
+import shutil
+import subprocess
+import sys
+import time
+import urllib.request
+from pathlib import Path
+
+HOME = Path.home()
+CACHE = Path(os.environ.get("XDG_CACHE_HOME", HOME / ".cache")) / "glut" / "plugin-store"
+DMS_REGISTRY_GIT = "https://github.com/duxlabs-dev/dux-plugin-registry"
+OMARCHY_SITE = "https://plugins.omarchy.org/"
+PLUGINS_DIR = Path(os.environ.get("XDG_CONFIG_HOME", HOME / ".config")) / "dms" / "plugins"
+PORTS_DIR = HOME / "Projekte" / "dms-ports"
+QML = Path(__file__).resolve().parent.parent / "apps" / "plugin-store" / "shell.qml"
+MAX_AGE = 12 * 3600
+
+DESKTOP = """[Desktop Entry]
+Type=Application
+Name=Plugin Store
+GenericName=Plugins für DMS
+Comment=DMS- und Omarchy-Plugins suchen, installieren und portieren
+Exec={exe}
+Icon=system-software-install
+Terminal=false
+Categories=Settings;DesktopSettings;
+Keywords=plugin;plugins;dms;omarchy;erweiterung;widget;
+"""
+
+
+def log(msg):
+    print(msg, file=sys.stderr, flush=True)
+
+
+def stale(path: Path) -> bool:
+    return not path.exists() or time.time() - path.stat().st_mtime > MAX_AGE
+
+
+def run(cmd, **kw):
+    return subprocess.run(cmd, capture_output=True, text=True, **kw)
+
+
+# ---------------------------------------------------------------- Kataloge
+def update_dms(force=False) -> Path:
+    repo = CACHE / "dms-registry"
+    stamp = CACHE / "dms-registry.stamp"
+    if not (repo / ".git").exists():
+        CACHE.mkdir(parents=True, exist_ok=True)
+        r = run(["git", "clone", "-q", "--depth", "1", DMS_REGISTRY_GIT, str(repo)])
+        if r.returncode != 0:
+            raise RuntimeError("DMS-Katalog nicht erreichbar: " + r.stderr.strip()[-200:])
+        stamp.touch()
+    elif force or stale(stamp):
+        r = run(["git", "-C", str(repo), "pull", "-q", "--ff-only", "--depth", "1"])
+        if r.returncode == 0:
+            stamp.touch()
+        else:
+            log("DMS-Katalog: Aktualisieren fehlgeschlagen, nutze den Cache")
+    return repo
+
+
+def update_omarchy(force=False) -> Path:
+    path = CACHE / "omarchy-catalog.json"
+    if force or stale(path):
+        CACHE.mkdir(parents=True, exist_ok=True)
+        tmp = path.with_suffix(".part")
+        try:
+            req = urllib.request.Request(OMARCHY_SITE + "catalog.json", headers={"User-Agent": "plugin-store"})
+            with urllib.request.urlopen(req, timeout=60) as resp, open(tmp, "wb") as fh:
+                shutil.copyfileobj(resp, fh)
+            json.load(open(tmp))  # nur gueltiges JSON uebernehmen
+            tmp.replace(path)
+        except Exception as e:
+            tmp.unlink(missing_ok=True)
+            if not path.exists():
+                raise RuntimeError(f"Omarchy-Katalog nicht erreichbar: {e}")
+            log(f"Omarchy-Katalog: Aktualisieren fehlgeschlagen ({e}), nutze den Cache")
+    return path
+
+
+def raw_url(url: str, repo_root: str = "") -> str:
+    """GitHub-Blob-Links und relative Pfade in direkt ladbare Bild-URLs umwandeln."""
+    if not url:
+        return ""
+    if url.startswith("https://github.com/") and "/blob/" in url:
+        owner_repo, rest = url[len("https://github.com/"):].split("/blob/", 1)
+        return f"https://raw.githubusercontent.com/{owner_repo}/{rest}"
+    if url.startswith("http"):
+        return url
+    return repo_root + url.lstrip("/")
+
+
+def installed_ids() -> set:
+    ids = set()
+    if PLUGINS_DIR.is_dir():
+        for d in PLUGINS_DIR.iterdir():
+            ids.add(d.name.lower())
+            try:
+                ids.add(json.load(open(d / "plugin.json"))["id"].lower())
+            except Exception:
+                pass
+    return ids
+
+
+def enabled_ids() -> set:
+    try:
+        d = json.load(open(PLUGINS_DIR.parent / "plugin_settings.json"))
+        return {k.lower() for k, v in d.items() if isinstance(v, dict) and v.get("enabled")}
+    except Exception:
+        return set()
+
+
+def local_entries(known: set, enabled: set):
+    """Installierte Plugins, die in keinem Katalog stehen (eigene, von Hand installierte)."""
+    out = []
+    if not PLUGINS_DIR.is_dir():
+        return out
+    for d in sorted(PLUGINS_DIR.iterdir()):
+        try:
+            m = json.load(open(d / "plugin.json"))
+        except Exception:
+            continue
+        pid = m.get("id", d.name)
+        if pid.lower() in known:
+            continue
+        shot = next((str(f) for f in (d / "screenshot.png", d / "preview.png", d / "screenshot.jpg") if f.exists()), "")
+        out.append({
+            "src": "local", "id": pid, "name": m.get("name", pid), "desc": m.get("description", ""),
+            "author": m.get("author", ""), "cat": "Lokal", "tags": m.get("tags") or [],
+            "kind": ", ".join(m.get("capabilities") or []) or (m.get("type") or ""),
+            "repo": "", "stars": 0, "thumb": shot and "file://" + shot, "image": shot and "file://" + shot,
+            "verified": False, "deps": m.get("dependencies") or [], "installed": True,
+            "enabled": pid.lower() in enabled, "ported": False, "note": "",
+            "path": str(d.resolve()),
+        })
+    return out
+
+
+def dms_entries(repo: Path, installed: set):
+    root = "https://raw.githubusercontent.com/duxlabs-dev/dux-plugin-registry/HEAD/"
+    out = []
+    for f in sorted((repo / "plugins").glob("*.json")):
+        try:
+            d = json.load(open(f))
+        except Exception:
+            continue
+        out.append({
+            "src": "dms",
+            "id": d["id"],
+            "name": d.get("name", d["id"]),
+            "desc": d.get("description", ""),
+            "author": d.get("author", ""),
+            "cat": (d.get("category") or "other").capitalize(),
+            "tags": d.get("tags") or [],
+            "kind": ", ".join(d.get("capabilities") or []),
+            "repo": (d.get("repo") or "").removesuffix(".git"),
+            "stars": 0,
+            "thumb": raw_url(d.get("screenshot", ""), root),
+            "image": raw_url(d.get("screenshot", ""), root),
+            "verified": bool(d.get("firstParty") or d.get("featured")),
+            "deps": d.get("dependencies") or [],
+            "installed": d["id"].lower() in installed,
+            "ported": False,
+            "note": "",
+        })
+    return out
+
+
+def omarchy_entries(path: Path):
+    items = json.load(open(path)).get("plugins", [])
+    out = []
+    for d in items:
+        pid = d.get("id")
+        if not pid:
+            continue
+        thumb = d.get("previewThumbnail") or d.get("previewImage") or ""
+        image = d.get("previewImage") or thumb
+        out.append({
+            "src": "omarchy",
+            "id": pid,
+            "name": d.get("name", pid),
+            "desc": d.get("description", ""),
+            "author": d.get("author", ""),
+            "cat": d.get("category") or "Other",
+            "tags": d.get("tags") or [],
+            "kind": d.get("kind", ""),
+            "repo": (d.get("repo") or "").removesuffix(".git"),
+            "stars": d.get("stars") or 0,
+            "thumb": raw_url(thumb, OMARCHY_SITE),
+            "image": raw_url(image, OMARCHY_SITE),
+            "verified": d.get("verificationStatus") == "verified",
+            "deps": [],
+            "installed": False,
+            "ported": (PORTS_DIR / pid).is_dir(),
+            "note": d.get("installNote") or "",
+        })
+    return out
+
+
+def cmd_catalog(force=False):
+    errors, items = [], []
+    enabled = enabled_ids()
+    try:
+        items += dms_entries(update_dms(force), installed_ids())
+    except Exception as e:
+        errors.append(str(e))
+    for i in items:
+        i["enabled"] = i["installed"] and i["id"].lower() in enabled
+    items += local_entries({i["id"].lower() for i in items if i["installed"]}, enabled)
+    try:
+        items += omarchy_entries(update_omarchy(force))
+    except Exception as e:
+        errors.append(str(e))
+    json.dump({"items": items, "errors": errors}, sys.stdout, ensure_ascii=False)
+    return 0
+
+
+# ---------------------------------------------------------------- Aktionen
+def lock_plugins():
+    # haelt die exakten Plugin-Versionen fest; confsync spiegelt die Datei nach glut
+    run(["dms", "plugins", "lock"])
+
+
+def cmd_install(pid):
+    r = run(["dms", "plugins", "install", pid])
+    if r.returncode != 0:
+        print((r.stderr or r.stdout).strip().splitlines()[-1] if (r.stderr or r.stdout).strip() else "Installation fehlgeschlagen")
+        return 1
+    run(["dms", "ipc", "call", "plugins", "enable", pid])
+    lock_plugins()
+    print(f"{pid} installiert und aktiviert")
+    return 0
+
+
+def cmd_toggle(pid, on):
+    r = run(["dms", "ipc", "call", "plugins", "enable" if on else "disable", pid])
+    out = (r.stdout or r.stderr).strip()
+    print(f"{pid} {'aktiviert' if on else 'deaktiviert'}" if r.returncode == 0 else (out or "fehlgeschlagen"))
+    return r.returncode
+
+
+def cmd_uninstall(pid):
+    run(["dms", "ipc", "call", "plugins", "disable", pid])
+    r = run(["dms", "plugins", "uninstall", pid])
+    if r.returncode != 0:
+        print((r.stderr or r.stdout).strip().splitlines()[-1] if (r.stderr or r.stdout).strip() else "Entfernen fehlgeschlagen")
+        return 1
+    lock_plugins()
+    print(f"{pid} entfernt")
+    return 0
+
+
+PORTING = """# Omarchy-Plugin nach DMS portieren: {name}
+
+Quelle: {repo}  (Omarchy-Plugin-ID `{pid}`, Art: {kind})
+Original-Code: `./omarchy-original/` (falls das Repo mehrere Plugins enthält: den Ordner,
+dessen `manifest.json` die ID `{pid}` hat)
+
+Beschreibung laut Katalog: {desc}
+
+## Ziel
+
+Ein DankMaterialShell-Plugin, das dasselbe leistet. Omarchy-Plugins laufen in Omarchys
+eigener Quickshell-Shell und nutzen deren Module (`qs.Commons`, `qs.Ui`, `Style`,
+`omarchy`-Befehl). Diese gibt es in DMS nicht: Farben, Schriften, Leisten-Einbindung,
+Panels und Einstellungen müssen auf die DMS-Plugin-API umgestellt werden.
+
+## Vorlagen für DMS-Plugins
+
+- Eigene Plugins in glut: `~/Projekte/glut/projects/` (z. B. RunCat = Leisten-Widget mit
+  Popout, FussballTicker = Widget + Daemon + Einstellungen).
+- Der offizielle DMS-Katalog mit 400+ Plugins (Links zu Repos):
+  `{dms_registry}/plugins/*.json`. Ähnliche Plugins dort als Muster ansehen.
+
+## Vorgehen
+
+1. Original lesen und verstehen, was es tut.
+2. Port unter `~/Projekte/{target}/` anlegen (plugin.json + QML), nicht hier.
+3. Nach `~/.config/dms/plugins/{target}` verlinken, mit `dms ipc call plugins enable <id>`
+   aktivieren, testen (Erik schaut auf den Bildschirm).
+4. **Lizenz prüfen.** Erlaubt die Lizenz des Originals Weitergabe (MIT, BSD, Apache, GPL …),
+   LICENSE und Hinweis auf das Original übernehmen und den Ordner in
+   `~/Projekte/glut/config/manifest.txt` eintragen, damit glut ihn mitführt.
+   Ohne Lizenz oder bei unklarer Lizenz: nur lokal nutzen, **nicht** in glut aufnehmen.
+5. Regeln aus `~/Projekte/glut/CLAUDE.md` beachten.
+"""
+
+
+def cmd_port(pid):
+    cat = update_omarchy()
+    entry = next((d for d in json.load(open(cat)).get("plugins", []) if d.get("id") == pid), None)
+    if not entry:
+        print(f"Omarchy-Plugin {pid} nicht im Katalog")
+        return 1
+    repo = (entry.get("repo") or "").removesuffix(".git")
+    dest = PORTS_DIR / pid
+    src = dest / "omarchy-original"
+    dest.mkdir(parents=True, exist_ok=True)
+    if not src.exists():
+        r = run(["git", "clone", "-q", "--depth", "1", repo + ".git", str(src)])
+        if r.returncode != 0:
+            print("Klonen fehlgeschlagen: " + r.stderr.strip()[-160:])
+            return 1
+    target = "".join(w.capitalize() for w in pid.replace(".", "-").replace("_", "-").split("-")) or pid
+    (dest / "PORTING.md").write_text(PORTING.format(
+        name=entry.get("name", pid), repo=repo, pid=pid, kind=entry.get("kind", "?"),
+        desc=entry.get("description", ""), target=target, dms_registry=CACHE / "dms-registry"))
+    claude = shutil.which("claude") or str(HOME / ".local/bin/claude")
+    term = shutil.which("ghostty")
+    prompt = f"Lies PORTING.md und portiere das Omarchy-Plugin {pid} nach DMS. Frag mich, bevor du etwas aktivierst."
+    if not term:
+        print(f"Kein Terminal gefunden. Manuell: cd {dest} && claude '{prompt}'")
+        return 1
+    subprocess.Popen([term, f"--working-directory={dest}", "--title=Port: " + entry.get("name", pid),
+                      "-e", claude, prompt],
+                     start_new_session=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    print(f"Portier-Sitzung gestartet in {dest}")
+    return 0
+
+
+def cmd_gui(tab="", query=""):
+    qs = shutil.which("qs") or shutil.which("quickshell")
+    if not qs or not QML.exists():
+        log("Quickshell oder shell.qml fehlt")
+        return 1
+    env = dict(os.environ, PLUGIN_STORE=str(Path(__file__).resolve()),
+               PLUGIN_STORE_TAB=tab, PLUGIN_STORE_QUERY=query,
+               THEMECTL=shutil.which("themectl") or str(HOME / ".local/bin/themectl"))
+    subprocess.Popen([qs, "-p", str(QML)], env=env, start_new_session=True,
+                     stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    return 0
+
+
+def main(argv):
+    if not argv:
+        return cmd_gui()
+    if argv[0].lower() in ("alle", "dms", "omarchy", "installiert"):
+        return cmd_gui(argv[0], " ".join(argv[1:]))
+    cmd, rest = argv[0], argv[1:]
+    if cmd in ("-h", "--help", "help"):
+        print(__doc__.strip())
+        return 0
+    if cmd == "--install-desktop":
+        apps = Path(os.environ.get("XDG_DATA_HOME", HOME / ".local/share")) / "applications"
+        apps.mkdir(parents=True, exist_ok=True)
+        (apps / "glut-plugin-store.desktop").write_text(DESKTOP.format(exe=Path(__file__).resolve()))
+        print("Starter angelegt")
+        return 0
+    if cmd == "catalog":
+        return cmd_catalog("--refresh" in rest)
+    if cmd in ("enable", "disable") and rest:
+        return cmd_toggle(rest[0], cmd == "enable")
+    if cmd in ("install", "uninstall", "port") and rest:
+        return {"install": cmd_install, "uninstall": cmd_uninstall, "port": cmd_port}[cmd](rest[0])
+    print(__doc__.strip(), file=sys.stderr)
+    return 2
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

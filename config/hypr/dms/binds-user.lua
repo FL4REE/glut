@@ -21,3 +21,4 @@ hl.bind("SUPER + ALT + SHIFT + R", hl.dsp.exec_cmd("bereich aufnahme --ton"), { 
 hl.bind("SUPER + ALT + S", hl.dsp.exec_cmd("welcher-song"), { description = "glut · Welcher Song läuft?" })
 hl.bind("SUPER + ssharp", hl.dsp.exec_cmd("dms ipc call keybinds toggle hyprland"), { description = "glut · Tastenkürzel-Übersicht" })
 hl.bind("SUPER + F1", hl.dsp.exec_cmd("dms ipc call keybinds toggle hyprland"), { description = "glut · Tastenkürzel-Übersicht" })
+hl.bind("SUPER + ALT + P", hl.dsp.exec_cmd("plugin-store"), { description = "glut · Plugin Store (DMS + Omarchy)" })

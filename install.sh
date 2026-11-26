@@ -104,6 +104,7 @@ mkdir -p "$BIN_DIR"
 for tool in "$REPO_DIR"/bin/*; do
   ln -sf "$tool" "$BIN_DIR/$(basename "$tool")"
 done
+"$BIN_DIR/plugin-store" --install-desktop >/dev/null || true   # app menu entry
 
 # --------------------------------------------------------------------------
 # 3. DMS plugins
@@ -118,10 +119,9 @@ mkdir -p "$PLUGINS" "$SRC_DIR"
 for p in "$REPO_DIR"/projects/*; do               # own plugins, from this repo
   link "$p" "$PLUGINS/$(basename "$p")"
 done
-clone https://github.com/motor-dev/wallpaperCarousel "$PLUGINS/wallpaperCarousel" \
-  c08fbb92c39d4d778bb08e520cfd96e395594440
-clone https://github.com/titeya/dms-claudecode "$PLUGINS/claudeCodeUsage" \
-  d83dd137ee68480b85c733f5920fa24e6f9904b5
+# Third-party plugins: exactly the versions recorded in config/dms/plugins.lock.json
+# (the Plugin Store and `dms plugins lock` keep it current).
+dms plugins restore "$REPO_DIR/config/dms/plugins.lock.json" || warn "dms plugins restore failed"
 
 # --------------------------------------------------------------------------
 # 4. Themes: themectl + 136 palettes + wallpaper pack
