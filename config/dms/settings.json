@@ -89,6 +89,10 @@
           "enabled": true
         },
         {
+          "id": "ioGithubEjuroBlowOffSomeSteam",
+          "enabled": true
+        },
+        {
           "id": "clipboard",
           "enabled": true
         },
@@ -163,7 +167,7 @@
     {
       "id": "leftDock",
       "name": "App Dock",
-      "enabled": true,
+      "enabled": false,
       "position": 2,
       "screenPreferences": [
         "all"
@@ -380,13 +384,13 @@
     {
       "id": "dock",
       "name": "Dock",
-      "enabled": false,
+      "enabled": true,
       "screenPreferences": [
         "all"
       ],
       "showOnLastDisplay": true,
       "position": 1,
-      "mode": "taskbar",
+      "mode": "dock",
       "middleClickAction": "close",
       "taskbarAlign": "center",
       "widgetExpansion": "popout",
@@ -425,7 +429,7 @@
       "showTrash": false,
       "trashFileManager": "default",
       "trashCustomCommand": "",
-      "magnification": false,
+      "magnification": true,
       "magnificationScale": 130,
       "magnificationProfile": "parabolic",
       "magnificationExpand": false,
