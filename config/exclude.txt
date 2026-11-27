@@ -21,3 +21,6 @@ ts-*/
 
 # Wallpaper liegen als Release-Download vor (wallpapers-v1), nicht im Repo
 wallpaper.*
+
+# von fensterleisten erzeugt (Theme-Farben), wird auf jedem Rechner neu geschrieben
+glut-titlebars.lua

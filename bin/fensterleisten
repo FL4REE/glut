@@ -1,0 +1,145 @@
+#!/usr/bin/env python3
+"""fensterleisten: Titelleisten fuer alle Fenster an/aus (Hyprland-Plugin hyprbars).
+
+  fensterleisten           umschalten                      SUPER+ALT+F
+  fensterleisten an|aus    erzwingen
+  fensterleisten status    zeigt an/aus
+  fensterleisten restore   beim Login: letzten Zustand wiederherstellen
+  fensterleisten refresh [theme]   nach Theme-Wechsel: Farben neu setzen (themectl-Hook)
+
+Aussehen (Theme-Farben, Knoepfe links wie bei macOS: Schliessen, Maximieren;
+Doppelklick maximiert) steht in ~/.config/hypr/glut-titlebars.lua. Diese Datei
+schreibt dieses Skript; hyprland.lua laedt sie bei jedem Reload, damit ein
+Reload die Einstellungen nicht zuruecksetzt. Sie wirkt nur, solange das Plugin
+geladen ist.
+"""
+import json
+import os
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+PLUGIN = "/usr/lib/libhyprbars.so"
+HOME = Path.home()
+STATE = Path(os.environ.get("XDG_STATE_HOME", HOME / ".local/state")) / "glut" / "fensterleisten"
+LUA = Path(os.environ.get("XDG_CONFIG_HOME", HOME / ".config")) / "hypr" / "glut-titlebars.lua"
+
+TEMPLATE = """-- Generiert von fensterleisten (glut), nicht von Hand aendern: wird beim Theme-Wechsel neu geschrieben.
+-- Wirkt nur, wenn das Plugin hyprbars geladen ist (fensterleisten an).
+local active = false
+for _, p in ipairs(hl.get_loaded_plugins()) do
+    if p.name == "hyprbars" then active = true end
+end
+if not active then return end
+
+local maximize = [[hyprctl dispatch 'hl.dsp.window.fullscreen({{ mode = "maximized", action = "toggle" }})']]
+
+hl.config({{ plugin = {{ hyprbars = {{
+    bar_height = 28, bar_text_size = 11, bar_padding = 12, bar_button_padding = 8,
+    bar_color = "{bar}", ["col.text"] = "{text}",
+    bar_text_align = "center", bar_buttons_alignment = "left",
+    bar_part_of_window = true, bar_precedence_over_border = true,
+    on_double_click = maximize,
+}} }} }})
+
+-- links ausgerichtet: der zuerst angelegte Knopf steht ganz links
+hl.plugin.hyprbars.add_button({{ bg_color = "rgb(ff5f57)", fg_color = "rgb(ff5f57)", size = 12, icon = "",
+    action = [[hyprctl dispatch 'hl.dsp.window.close()']] }})
+hl.plugin.hyprbars.add_button({{ bg_color = "rgb(28c840)", fg_color = "rgb(28c840)", size = 12, icon = "",
+    action = maximize }})
+"""
+
+
+def hypr(*args):
+    return subprocess.run(["hyprctl", *args], capture_output=True, text=True)
+
+
+def loaded():
+    return "hyprbars" in hypr("plugin", "list").stdout
+
+
+def theme_colors(name=""):
+    exe = shutil.which("themectl") or str(HOME / ".local/bin/themectl")
+    try:
+        themes = json.loads(subprocess.run([exe, "list", "--json"], capture_output=True, text=True).stdout)
+        # themectl ruft den Hook auf, bevor es das neue Theme als aktuell markiert: Name hat Vorrang
+        cur = next(t for t in themes if (t["id"] == name if name else t.get("current")))
+        return cur["background"], cur["foreground"]
+    except Exception:
+        return "#1b1e28", "#e4f0fb"
+
+
+def mix(a, b, t):
+    """Farbe a mit t-Anteil von b mischen, damit sich die Leiste leicht vom Hintergrund abhebt."""
+    a, b = a.lstrip("#"), b.lstrip("#")
+    return "".join(f"{round(int(a[i:i+2], 16) * (1 - t) + int(b[i:i+2], 16) * t):02x}" for i in (0, 2, 4))
+
+
+def write_lua(theme=""):
+    bg, fg = theme_colors(theme)
+    text = TEMPLATE.format(bar=f"rgb({mix(bg, fg, 0.06)})", text=f"rgb({fg.lstrip('#')[:6]})")
+    if not LUA.exists() or LUA.read_text() != text:
+        LUA.write_text(text)
+        return True
+    return False
+
+
+def save(state):
+    STATE.parent.mkdir(parents=True, exist_ok=True)
+    STATE.write_text(state + "\n")
+
+
+def notify(msg):
+    subprocess.run(["notify-send", "-a", "Fensterleisten", "Fensterleisten", msg], check=False)
+    print(msg, file=sys.stderr)
+
+
+def on():
+    if not os.path.exists(PLUGIN):
+        notify("hyprland-plugin-hyprbars ist nicht installiert")
+        return 1
+    write_lua()
+    if not loaded():
+        hypr("plugin", "load", PLUGIN)
+        if not loaded():
+            notify("hyprbars laesst sich nicht laden (passt es zur Hyprland-Version?)")
+            return 1
+    # Reload, damit hyprland.lua die Einstellungen aus glut-titlebars.lua uebernimmt
+    hypr("reload")
+    save("an")
+    return 0
+
+
+def off():
+    if loaded():
+        hypr("plugin", "unload", PLUGIN)
+    save("aus")
+    return 0
+
+
+def main(arg, theme=""):
+    if arg == "status":
+        print("an" if loaded() else "aus")
+        return 0
+    if arg == "restore":
+        saved = STATE.read_text().strip() if STATE.exists() else "aus"
+        return on() if saved == "an" else 0
+    if arg == "refresh":
+        # neue Theme-Farben; neu laden nur, wenn die Leisten gerade an sind
+        if write_lua(theme) and loaded():
+            hypr("reload")
+        return 0
+    if arg == "an":
+        return on()
+    if arg == "aus":
+        return off()
+    return off() if loaded() else on()
+
+
+if __name__ == "__main__":
+    a = sys.argv[1] if len(sys.argv) > 1 else ""
+    if a in ("-h", "--help"):
+        print(__doc__.strip())
+        sys.exit(0)
+    sys.exit(main(a, sys.argv[2] if len(sys.argv) > 2 else ""))

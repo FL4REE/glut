@@ -13,6 +13,7 @@ ghostty = false   # ~/.config/ghostty/themes/theme-switcher schreiben
 [hooks]
 # Befehle nach jedem Wechsel; {name} und {dir} werden ersetzt
 post_apply = [
+  "fensterleisten refresh {name}",   # Titelleisten in den neuen Theme-Farben
   # "notify-send 'Theme' '{name}'",
 ]
 

@@ -12,6 +12,8 @@ end)
 -- Live-Hintergrund (Wallpaper Engine), siehe ~/.local/bin/livewallpaper
 hl.on("hyprland.start", function()
 	hl.exec_cmd("livewallpaper")
+	-- Fenster-Titelleisten (hyprbars), letzter Zustand; siehe ~/.local/bin/fensterleisten
+	hl.exec_cmd("fensterleisten restore")
 end)
 
 hl.config({
@@ -243,3 +245,6 @@ require("dms.windowrules")
 
 -- HyprMod managed settings
 require("hyprland-gui")
+
+-- Fenster-Titelleisten (glut, fensterleisten): wirkt nur, wenn das Plugin hyprbars geladen ist
+pcall(dofile, os.getenv("HOME") .. "/.config/hypr/glut-titlebars.lua")

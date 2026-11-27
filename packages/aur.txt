@@ -6,6 +6,8 @@ manga-cli-git
 mtgarena
 spicetify-cli
 
+hyprland-plugin-hyprbars
+
 # Neu erfasst (pkgsync) - bei Gelegenheit einsortieren
 aether
 ai.storyteller.photocraft

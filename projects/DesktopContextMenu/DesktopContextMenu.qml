@@ -273,6 +273,8 @@ DesktopPluginComponent {
                 { icon: root.allFloating ? "check_box" : "check_box_outline_blank",
                   text: "Alle Fenster floaten",
                   action: () => root.toggleAllFloating() },
+                { icon: "web_asset", text: "Fenster-Titelleisten an/aus",
+                  action: glut("fensterleisten") },
                 { icon: root.pokeThemeMatch ? "check_box" : "check_box_outline_blank",
                   text: "Pokémon an Theme anpassen",
                   action: () => root.togglePokeThemeMatch() },
